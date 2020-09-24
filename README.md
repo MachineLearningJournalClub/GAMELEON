@@ -19,8 +19,11 @@
 
 * [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) : Notebook in cui vengono preprocessati i dati dell'Ontario (filtrando solo l'area utile : città di Toronto) per i diversi layer presenti da OpenStreetMap (OSM), che potete trovare nella [cartella seguente](https://drive.google.com/drive/u/0/folders/1pb9tC2ceYZoz_5SUKnjecjBal6To06g6). Breve Exploratory Data Analysis (EDA) su dati di traffico (li trovate [qui](https://drive.google.com/drive/u/0/folders/1lEN1dhSCvjQlzbkPAmawNulMngBXfYa2)) e su [dati di casi](https://github.com/sazio/MultiAgentCovid/blob/master/Data/CasesToronto.csv) e di quartiere: su [abitanti](https://github.com/sazio/MultiAgentCovid/blob/master/Data/neighbourhood-profiles-2016-csv.csv) e su [confini geometrici di ognuno](https://github.com/sazio/MultiAgentCovid/blob/master/Data/toronto_neigh.geojson)
 
-* Data/ : Contiene i dati (esclusi i file grandi che sono sul drive linkato prima) 
-  * d
+* [Data/](https://github.com/sazio/MultiAgentCovid/tree/master/Data) : Contiene i dati (esclusi i file grandi che sono sul drive linkato prima) 
+  * [CasesToronto.csv](https://github.com/sazio/MultiAgentCovid/blob/master/Data/CasesToronto.csv) : Casi Positivi al Covid con le seguenti features --> ['_id', 'Assigned_ID', 'Outbreak Associated', 'Age Group', 'Neighbourhood Name', 'FSA', 'Source of Infection', 'Classification', 'Episode Date', 'Reported Date', 'Client Gender', 'Outcome','Currently Hospitalized', 'Currently in ICU', 'Currently Intubated','Ever Hospitalized', 'Ever in ICU', 'Ever Intubated']
+  * 
+  *
+  * 
 
 
 
