@@ -9,7 +9,7 @@
  'Neighbourhood Name', 'FSA', 'Source of Infection', 'Classification',     'Episode Date', 'Reported Date', 'Client Gender', 'Outcome' ,  ‘Currently Hospitalized', 'Currently in ICU', 'Currently Intubated',   'Ever Hospitalized', 'Ever in ICU', 'Ever Intubated'] 
 
 
-* Toronto OpenStreetMap (OSM) layers, filtrati dalla regione dell’Ontario che può essere scaricata tramite [geofabrik](https://download.geofabrik.de/north-america/canada.html) utilizzando [polygons](http://polygons.openstreetmap.fr/?id=324211) . Dove id = 324211 rappresenta [l’area amministrativa di Toronto]((https://www.openstreetmap.org/relation/324211#map=11/43.7175/-79.3762)), estratta tramite OSM 
+* Toronto OpenStreetMap (OSM) layers, filtrati dalla regione dell’Ontario che può essere scaricata tramite [geofabrik](https://download.geofabrik.de/north-america/canada.html) utilizzando [polygons](http://polygons.openstreetmap.fr/?id=324211) . Dove *id = 324211* rappresenta [l’area amministrativa di Toronto]((https://www.openstreetmap.org/relation/324211#map=11/43.7175/-79.3762)), estratta tramite OSM 
 
 
 *  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
@@ -21,9 +21,9 @@
 
 * [Data/](https://github.com/sazio/MultiAgentCovid/tree/master/Data) : Contiene i dati (esclusi i file grandi che sono sul drive linkato prima) 
   * [CasesToronto.csv](https://github.com/sazio/MultiAgentCovid/blob/master/Data/CasesToronto.csv) : Casi Positivi al Covid con le seguenti features --> ['_id', 'Assigned_ID', 'Outbreak Associated', 'Age Group', 'Neighbourhood Name', 'FSA', 'Source of Infection', 'Classification', 'Episode Date', 'Reported Date', 'Client Gender', 'Outcome','Currently Hospitalized', 'Currently in ICU', 'Currently Intubated','Ever Hospitalized', 'Ever in ICU', 'Ever Intubated']
-  * 
-  *
-  * 
+  * [Toronto.geojson](https://github.com/sazio/MultiAgentCovid/blob/master/Data/Toronto.geojson): Poligono che determina il limite amministrativo della città di Toronto, utilizzato per filtrare i dati geografici
+  * [neighbourhood-profiles-2016-csv.csv](https://github.com/sazio/MultiAgentCovid/blob/master/Data/neighbourhood-profiles-2016-csv.csv): Dati di abitanti a livello di quartiere (con divisione per gruppi di età, sesso... )per  Toronto (aggiornati al 2016 - sono gli ultimi che ho trovato, se trovate di meglio aggiornate) 
+  * [toronto_neigh.geojson](https://github.com/sazio/MultiAgentCovid/blob/master/Data/toronto_neigh.geojson): Poligoni che determinano i confini di ogni quartiere, utili per aggregare i dati di traffico e infetti nel modello con GAMA
 
 
 
