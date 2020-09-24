@@ -24,9 +24,14 @@
   * [Toronto.geojson](https://github.com/sazio/MultiAgentCovid/blob/master/Data/Toronto.geojson): Poligono che determina il limite amministrativo della città di Toronto, utilizzato per filtrare i dati geografici
   * [neighbourhood-profiles-2016-csv.csv](https://github.com/sazio/MultiAgentCovid/blob/master/Data/neighbourhood-profiles-2016-csv.csv): Dati di abitanti a livello di quartiere (con divisione per gruppi di età, sesso... )per  Toronto (aggiornati al 2016 - sono gli ultimi che ho trovato, se trovate di meglio aggiornate) 
   * [toronto_neigh.geojson](https://github.com/sazio/MultiAgentCovid/blob/master/Data/toronto_neigh.geojson): Poligoni che determinano i confini di ogni quartiere, utili per aggregare i dati di traffico e infetti nel modello con GAMA
+  
+  
+* [GAMA/](https://github.com/sazio/MultiAgentCovid/tree/master/GAMA): Contiene il codice da eseguire con GAMA
+  * [RoadNet_Toronto.gaml](https://github.com/sazio/MultiAgentCovid/blob/master/GAMA/RoadNet_Toronto.gaml): Codice per importare i diversi layer geografici della città di Toronto, eseguendolo potrete vedere la mappa, ovvero l'ambiente per i nostri agenti
 
 
-
+* [Img/](https://github.com/sazio/MultiAgentCovid/tree/master/Img): Immagini utili per visualizzazioni da mettere nel paper per l'esame 
+  * [Toronto_Net.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Net.png) : Mappa di Toronto con i diversi layer geografici in risoluzione non troppo alta 
 
 ## Modello Epidemico 
 SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
