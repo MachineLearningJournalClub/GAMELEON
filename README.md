@@ -38,4 +38,4 @@ SIR su rete stradale, considerando che una percentuale dei positivi finirà in o
 
 ## Modello Traffico Stradale 
 
-Modello Epidemico: SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+Modello Epidemico: SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti,https://gama-platform.github.io/wiki/RoadTrafficModel )
