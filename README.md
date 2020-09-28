@@ -41,7 +41,7 @@ SIR su rete stradale, considerando che una percentuale dei positivi finirà in o
 
 ### Intro
 
-Vedi tutorial su GAMA per spunti,https://gama-platform.github.io/wiki/RoadTrafficModel )
+Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) per spunti.
 
 ### Rete Pesata 
 
