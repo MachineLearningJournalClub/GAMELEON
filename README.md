@@ -32,6 +32,7 @@
 
 * [Img/](https://github.com/sazio/MultiAgentCovid/tree/master/Img): Immagini utili per visualizzazioni da mettere nel paper per l'esame 
   * [Toronto_Net.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Net.png) : Mappa di Toronto con i diversi layer geografici in risoluzione non troppo alta 
+  * [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png): Rete stradale di Toronto, pesata in base alle macchine transitanti. 
 
 ## Modello Epidemico 
 SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
@@ -40,9 +41,12 @@ SIR su rete stradale, considerando che una percentuale dei positivi finirà in o
 
 ### Intro
 
-Modello Epidemico: SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti,https://gama-platform.github.io/wiki/RoadTrafficModel )
+Vedi tutorial su GAMA per spunti,https://gama-platform.github.io/wiki/RoadTrafficModel )
 
 ### Rete Pesata 
+
+* Nella sezione "Traffic" di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite log(macchine) che passano su un determinato link = strada)
+
 
 
 ### Distribuzione del traffico orario (empirica) 
