@@ -34,9 +34,6 @@
   * [Toronto_Net.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Net.png) : Mappa di Toronto con i diversi layer geografici in risoluzione non troppo alta 
   * [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png): Rete stradale di Toronto, pesata in base alle macchine transitanti. 
 
-## Modello Epidemico 
-SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
-
 ## Modello Traffico Stradale 
 
 ### Intro
@@ -51,3 +48,6 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 
 ### Distribuzione del traffico orario (empirica) 
 * Paper
+
+## Modello Epidemico 
+SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
