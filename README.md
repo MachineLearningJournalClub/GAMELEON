@@ -14,6 +14,8 @@
 
 *  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
+*  Dati altezza palazzi: [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)). Avendo l'altezza di tutte le costruzioni a Toronto sarà possibile stimare (in maniera cruda, ma meglio di niente) quante persone possono stare in ogni palazzo. Fondamentale integrare questi dati con i dati di popolazione per quartiere. 
+
 
 ## Quick recap dei file in questa repo
 
@@ -32,16 +34,28 @@
 
 * [Img/](https://github.com/sazio/MultiAgentCovid/tree/master/Img): Immagini utili per visualizzazioni da mettere nel paper per l'esame 
   * [Toronto_Net.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Net.png) : Mappa di Toronto con i diversi layer geografici in risoluzione non troppo alta 
-
-## Modello Epidemico 
-SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+  * [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png): Rete stradale di Toronto, pesata in base alle macchine transitanti. 
 
 ## Modello Traffico Stradale 
 
 ### Intro
 
-Modello Epidemico: SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti,https://gama-platform.github.io/wiki/RoadTrafficModel )
+Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) per spunti.
 
-### Rete Pesata
+### Rete Pesata 
 
-### Distribuzione del traffico orario (empirica)
+* Nella sezione **Traffic** di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti (e ulteriormente compressi) i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite *log(#macchine)* che passano su un determinato link = strada)
+
+
+
+### Distribuzione del traffico orario (empirica) 
+* Paper
+
+## Modello Epidemico 
+
+### Intro
+SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+
+### Stima della popolazione per palazzo 
+
+Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo integrare i dati di popolazione x quartiere con quelli di area + altezza ( [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)) delle costruzioni. 
