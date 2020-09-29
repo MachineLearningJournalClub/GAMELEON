@@ -14,6 +14,8 @@
 
 *  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
+* [Dati altezza buildings](https://critchley-ryerson.carto.com/tables/odmassing_2014_wgs_w_address_missadd_zone/public) Avendo l'altezza di tutte le costruzioni a Toronto sarà possibile stimare (in maniera cruda, ma meglio di niente) quante persone possono stare in ogni palazzo. Fondamentale integrare questi dati con i dati di popolazione per quartiere. 
+
 
 ## Quick recap dei file in questa repo
 
@@ -50,4 +52,10 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 * Paper
 
 ## Modello Epidemico 
+
+### Intro
 SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+
+### Stima della popolazione per palazzo 
+
+Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo integrare i dati di popolazione x quartiere con quelli di area + altezza ([Dati altezza buildings](https://critchley-ryerson.carto.com/tables/odmassing_2014_wgs_w_address_missadd_zone/public)) delle costruzioni. 
