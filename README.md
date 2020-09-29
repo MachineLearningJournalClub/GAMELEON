@@ -48,7 +48,6 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 * Nella sezione **Traffic** di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti (e ulteriormente compressi) i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite *log(#macchine)* che passano su un determinato link = strada)
 
 
-
 ### Distribuzione del traffico orario (empirica) 
 * Paper
 
@@ -57,6 +56,7 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 ### Intro
 SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
 
+Casi nella città di Toronto
 ![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLBPIXGJOBQUEKKWBRK7PT2YG)
 
 ### Stima della popolazione per palazzo 
