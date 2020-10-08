@@ -18,6 +18,9 @@
 
 * Dati di caratteristica sulle zone [Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law), da questi si può capire se l'edificio è residenziale oppure commerciale, industriale etc.. 
 
+* Dati su congestione traffico, media settimanale a Toronto nell'anno 2019, scraped from https://www.tomtom.com/en_gb/traffic-index/toronto-traffic/
+ ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLF7D545KYD6RUBWNSS7RAKAW)
+
 ## Quick recap dei file in questa repo
 
 * [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) : Notebook in cui vengono preprocessati i dati dell'Ontario (filtrando solo l'area utile : città di Toronto) per i diversi layer presenti da OpenStreetMap (OSM), che potete trovare nella [cartella seguente](https://drive.google.com/drive/u/0/folders/1pb9tC2ceYZoz_5SUKnjecjBal6To06g6). Breve Exploratory Data Analysis (EDA) su dati di traffico (li trovate [qui](https://drive.google.com/drive/u/0/folders/1lEN1dhSCvjQlzbkPAmawNulMngBXfYa2)) e su [dati di casi](https://github.com/sazio/MultiAgentCovid/blob/master/Data/CasesToronto.csv) e di quartiere: su [abitanti](https://github.com/sazio/MultiAgentCovid/blob/master/Data/neighbourhood-profiles-2016-csv.csv) e su [confini geometrici di ognuno](https://github.com/sazio/MultiAgentCovid/blob/master/Data/toronto_neigh.geojson)
