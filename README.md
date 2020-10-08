@@ -58,7 +58,18 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 ## Modello Epidemico 
 
 ### Intro
-SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+SIR, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu ). 
+
+Per ora, dopo il lungo preprocessing, abbiamo dati specifici su ogni palazzo, riguardo al suo volume fisico (utile per stimare quante persone ci stanno dentro) e la categoria (residenziale, commerciale, industriale). In questo modo la distribuzione iniziale delle persone dovrebbe essere soddisfacente. 
+
+Oltre al dato sul numero degli abitanti, sono disponibili gli abitanti per fascia di età: 
+
+* Children (0-14 years) 
+* Youth (15-24 years)	
+* Working Age (25-54 years)
+* Pre-retirement (55-64 years)	
+* Seniors (65+ years)
+* Older Seniors (85+ years)
 
 Casi nella città di Toronto
 ![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLHFJKPADLMQ27ZN3O27RAJWE)
