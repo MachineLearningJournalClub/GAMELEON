@@ -58,7 +58,7 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 ## Modello Epidemico 
 
 ### Intro
-SIR, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu ). 
+SIR, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto. Questa evidenza potrebbe essere modellata introducendo un parametro (in stile fitness del modello generativo Bianconi-Barabasi) per la **carica virale**. 
 
 Per ora, dopo il lungo preprocessing, abbiamo dati specifici su ogni palazzo, riguardo al suo volume fisico (utile per stimare quante persone ci stanno dentro) e la categoria (residenziale, commerciale, industriale). In questo modo la distribuzione iniziale delle persone dovrebbe essere soddisfacente. 
 
@@ -71,8 +71,12 @@ Oltre al dato sul numero degli abitanti, sono disponibili gli abitanti per fasci
 * Seniors (65+ years)
 * Older Seniors (85+ years)
 
-Casi nella città di Toronto
+Per quanto riguarda i casi totali, abbiamo la seguente curva epidemica. 
 ![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLHFJKPADLMQ27ZN3O27RAJWE)
+
+Anche qui, con la massima anonimizzazione, è stata fatta una divisione per fasce di età e per quartiere di residenza, specificando inoltre, se la *source of infection* e se lo specifico paziente abbia usufruito della terapia intensiva.
+
+![ex_infected_data](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/ex_infected_cases.png?token=ADFSHLFMJMYFE7TCGHWHHUC7RAMVO)
 
 ### Stima della popolazione per palazzo 
 
