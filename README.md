@@ -11,17 +11,14 @@
 
 * Toronto OpenStreetMap (OSM) layers, filtrati dalla regione dell’Ontario che può essere scaricata tramite [geofabrik](https://download.geofabrik.de/north-america/canada.html) utilizzando [polygons](http://polygons.openstreetmap.fr/?id=324211) . Dove *id = 324211* rappresenta [l’area amministrativa di Toronto]((https://www.openstreetmap.org/relation/324211#map=11/43.7175/-79.3762)), estratta tramite OSM 
 
-
-*  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
-
 *  Dati altezza palazzi: [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)). Avendo l'altezza di tutte le costruzioni a Toronto sarà possibile stimare (in maniera cruda, ma meglio di niente) quante persone possono stare in ogni palazzo. Fondamentale integrare questi dati con i dati di popolazione per quartiere. 
-
-![Buildings](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/Toronto_Traffic_Density.png?token=ADFSHLDP3EDROJFUVV6V3MK7RAK2I)
 
 * Dati di caratteristica sulle zone [Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law), da questi si può capire se l'edificio è residenziale oppure commerciale, industriale etc.. 
 
 * Dati su congestione traffico, media settimanale a Toronto nell'anno 2019, scraped from https://www.tomtom.com/en_gb/traffic-index/toronto-traffic/
  ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLF7D545KYD6RUBWNSS7RAKAW)
+
+*  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
 ## Quick recap dei file in questa repo
 
@@ -48,13 +45,15 @@
 
 Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) per spunti.
 
-### Rete Pesata 
+### Rete Stradale
 
 * Nella sezione **Traffic** di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti (e ulteriormente compressi) i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite *log(#macchine)* che passano su un determinato link = strada)
 
+![Traffic](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/Toronto_Traffic_Density.png?token=ADFSHLDP3EDROJFUVV6V3MK7RAK2I)
+
 
 ### Distribuzione del traffico orario (empirica) 
-* Paper
+* Per questa, possiamo integrare i dati TomTom giornalieri con la curva della congestione settimanale di traffico come densità di probabilità delle macchine che vanno in giro. In questo modo avremmo un ottimo modello per il traffico pre-covid
 
 ## Modello Epidemico 
 
