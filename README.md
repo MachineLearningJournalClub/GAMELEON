@@ -49,7 +49,7 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 
 * Nella sezione **Traffic** di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti (e ulteriormente compressi) i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite *log(#macchine)* che passano su un determinato link = strada)
 
-![Traffic](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/Toronto_Traffic_Density.png?token=ADFSHLDP3EDROJFUVV6V3MK7RAK2I)
+![Traffic](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLBCNPN3LDZQLRRRUT27S2W5S)
 
 
 ### Distribuzione del traffico orario (empirica) 
@@ -72,11 +72,11 @@ Oltre al dato sul numero degli abitanti, sono disponibili gli abitanti per fasci
 * Older Seniors (85+ years)
 
 Per quanto riguarda i casi totali, abbiamo la seguente curva epidemica. 
-![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLHFJKPADLMQ27ZN3O27RAJWE)
+![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLDR6P737TK4CZL6AX27S2W4O)
 
 Anche qui, con la massima anonimizzazione, è stata fatta una divisione per fasce di età e per quartiere di residenza, specificando inoltre, se la *source of infection* e se lo specifico paziente abbia usufruito della terapia intensiva.
 
-![ex_infected_data](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/ex_infected_cases.png?token=ADFSHLFMJMYFE7TCGHWHHUC7RAMVO)
+![ex_infected_data](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/ex_infected_cases.png?token=ADFSHLDBIKWLBLI6FQ6HVKC7S2WZG)
 
 ### Stima della popolazione per palazzo 
 
