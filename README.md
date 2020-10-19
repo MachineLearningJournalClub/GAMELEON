@@ -16,7 +16,7 @@
 * Dati di caratteristica sulle zone [Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law), da questi si può capire se l'edificio è residenziale oppure commerciale, industriale etc.. 
 
 * Dati su congestione traffico, media settimanale a Toronto nell'anno 2019, scraped from https://www.tomtom.com/en_gb/traffic-index/toronto-traffic/
- ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLF7D545KYD6RUBWNSS7RAKAW)
+ ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/Toronto_Traffic_Density.png?token=ADFSHLCLMYG4T44TVFEUYX27S2XBA)
 
 *  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
