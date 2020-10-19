@@ -82,4 +82,6 @@ Anche qui, con la massima anonimizzazione, è stata fatta una divisione per fasc
 
 Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo integrare i dati di popolazione x quartiere con quelli di area + altezza ( [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)) delle costruzioni. Insieme a questi, integrare i dati di caratteristica sulle zone ([Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law)) sarà essenziale per replicare una distribuzione di popolazione simile a quella effettiva. 
 
+![Height_Buildings](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/height_buildings.png?token=ADFSHLBMUUXYD57LHJRN3LS7S2ZDS)
+
 
