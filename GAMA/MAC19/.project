@@ -15,4 +15,16 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>msi.gama.application.gamaNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>external/day1.csv</name>
+			<type>1</type>
+			<location>C:/Users/simon/Documents/MAS/MultiAgentCovid/day1.csv</location>
+		</link>
+		<link>
+			<name>external/trafficweek.csv</name>
+			<type>1</type>
+			<location>C:/Users/simon/Documents/MAS/MultiAgentCovid/trafficweek.csv</location>
+		</link>
+	</linkedResources>
 </projectDescription>
