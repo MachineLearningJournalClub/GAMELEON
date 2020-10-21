@@ -11,12 +11,14 @@
 
 * Toronto OpenStreetMap (OSM) layers, filtrati dalla regione dell’Ontario che può essere scaricata tramite [geofabrik](https://download.geofabrik.de/north-america/canada.html) utilizzando [polygons](http://polygons.openstreetmap.fr/?id=324211) . Dove *id = 324211* rappresenta [l’area amministrativa di Toronto]((https://www.openstreetmap.org/relation/324211#map=11/43.7175/-79.3762)), estratta tramite OSM 
 
-
-*  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
-
 *  Dati altezza palazzi: [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)). Avendo l'altezza di tutte le costruzioni a Toronto sarà possibile stimare (in maniera cruda, ma meglio di niente) quante persone possono stare in ogni palazzo. Fondamentale integrare questi dati con i dati di popolazione per quartiere. 
 
 * Dati di caratteristica sulle zone [Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law), da questi si può capire se l'edificio è residenziale oppure commerciale, industriale etc.. 
+
+* Dati su congestione traffico, media settimanale a Toronto nell'anno 2019, scraped from https://www.tomtom.com/en_gb/traffic-index/toronto-traffic/
+ ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLBCNPN3LDZQLRRRUT27S2W5S)
+
+*  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
 ## Quick recap dei file in questa repo
 
@@ -43,24 +45,43 @@
 
 Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) per spunti.
 
-### Rete Pesata 
+### Rete Stradale
 
 * Nella sezione **Traffic** di [GIS_Data_Toronto.ipynb](https://github.com/sazio/MultiAgentCovid/blob/master/GIS_Data_Toronto.ipynb) vengono ripuliti (e ulteriormente compressi) i dati presi dall' API di TomTom Move e mandata in output - vd. [Toronto_Traffic_Density.png](https://github.com/sazio/MultiAgentCovid/blob/master/Img/Toronto_Traffic_Density.png), fatta sul giorno 01-Apr-2019 - la rete pesata (tramite *log(#macchine)* che passano su un determinato link = strada)
 
+![Traffic](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/Toronto_Traffic_Density.png?token=ADFSHLCLMYG4T44TVFEUYX27S2XBA)
+
 
 ### Distribuzione del traffico orario (empirica) 
-* Paper
+* Per questa, possiamo integrare i dati TomTom giornalieri con la curva della congestione settimanale di traffico come densità di probabilità delle macchine che vanno in giro. In questo modo avremmo un ottimo modello per il traffico pre-covid
 
 ## Modello Epidemico 
 
 ### Intro
-SIR su rete stradale, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto ( vedi tutorial su GAMA per spunti, https://gama-platform.github.io/wiki/LuneraysFlu )
+SIR, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto. Questa evidenza potrebbe essere modellata introducendo un parametro (in stile fitness del modello generativo Bianconi-Barabasi) per la **carica virale**. 
 
-Casi nella città di Toronto
-![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLBPIXGJOBQUEKKWBRK7PT2YG)
+Per ora, dopo il lungo preprocessing, abbiamo dati specifici su ogni palazzo, riguardo al suo volume fisico (utile per stimare quante persone ci stanno dentro) e la categoria (residenziale, commerciale, industriale). In questo modo la distribuzione iniziale delle persone dovrebbe essere soddisfacente. 
+
+Oltre al dato sul numero degli abitanti, sono disponibili gli abitanti per fascia di età: 
+
+* Children (0-14 years) 
+* Youth (15-24 years)	
+* Working Age (25-54 years)
+* Pre-retirement (55-64 years)	
+* Seniors (65+ years)
+* Older Seniors (85+ years)
+
+Per quanto riguarda i casi totali, abbiamo la seguente curva epidemica. 
+![Cases](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/cases.png?token=ADFSHLDR6P737TK4CZL6AX27S2W4O)
+
+Anche qui, con la massima anonimizzazione, è stata fatta una divisione per fasce di età e per quartiere di residenza, specificando inoltre, se la *source of infection* e se lo specifico paziente abbia usufruito della terapia intensiva.
+
+![ex_infected_data](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/ex_infected_cases.png?token=ADFSHLDBIKWLBLI6FQ6HVKC7S2WZG)
 
 ### Stima della popolazione per palazzo 
 
 Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo integrare i dati di popolazione x quartiere con quelli di area + altezza ( [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)) delle costruzioni. Insieme a questi, integrare i dati di caratteristica sulle zone ([Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law)) sarà essenziale per replicare una distribuzione di popolazione simile a quella effettiva. 
+
+![Height_Buildings](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/height_buildings.png?token=ADFSHLBMUUXYD57LHJRN3LS7S2ZDS)
 
 
