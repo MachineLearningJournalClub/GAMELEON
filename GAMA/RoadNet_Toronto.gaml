@@ -1,38 +1,33 @@
 /**
-* Name: mas
+* Name: NewModel
 * Based on the internal empty template. 
-* Author: Alessandro
+* Author: simon
 * Tags: 
 */
-
 
 // Per caricare file GIS 
 model load_shape_file 
  
 global {
-	 // Numero di persone
-    int nb_people <- 1;
+	 // Step temporale e numero di persone
+    int nb_people <- 1500;
     //int nb_infected_init <- 5;
-    // Step temporale e istante iniziale
     float step <- 5 #mn;
+    
+    // data di inizio infezione
     date starting_date <- date([2019,4,1,3,0,0]);
     
+    // C:\Users\simon\Desktop\MAS\Data\Traffic\Filtered-top23-neigh
 	// Questi file, strade e edifici sono stati preprocessati nel notebook "GIS_Data_Turin"
-    file roads_shapefile <- file("C:/Users/Alessandro/Desktop/GAMA/Workspace/mas/includes/Data/Traffic/Filtered-top23-neigh/2019-04-01-Toronto.shp");
-    file buildings_shapefile <- file("C:/Users/Alessandro/Desktop/GAMA/Workspace/mas/includes/Data/Buildings/buildings_shp/height_build_23_neigh.shp");
-    //file roads_shapefile <- file("C:/Users/Alessandro/Desktop/GAMA/Workspace/mas/includes/datatutorial/road.shp");
-    //file buildings_shapefile <- file("C:/Users/Alessandro/Desktop/GAMA/Workspace/mas/includes/datatutorial/building.shp");
+    file roads_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Traffic/Filtered-top23-neigh/2019-04-01-Toronto.shp");
+    file buildings_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Buildings/buildings_shp/height_build_23_neigh.shp");
     
-    //Proviamo a caricare gli ospedali, saranno una tipologia diversa di buildings
-    
-    file hospitals_shapefile <- file("C:/Users/Alessandro/Desktop/GAMA/Workspace/mas/includes/Data/Toronto_final/Hospitals_Toronto.shp");
-   
     
     // Creaiamo il grafo stradale come base per il nostro modello
     geometry shape <- envelope(roads_shapefile);
     graph road_network;
     
-    // Dinamica epidemica
+    // Dinamica epidemica 
    /*int nb_people_infected <- nb_infected_init update: people count (each.is_infected);
     int nb_people_not_infected <- nb_people - nb_infected_init update: nb_people - nb_people_infected;
     float infected_rate update: nb_people_infected/nb_people;
@@ -46,6 +41,7 @@ global {
     list hour_traffic <- [0.000000000000000000,0.000000000000000000,3.714285714285714413,1.857142857142857295,3.714285714285714590,51.07142857142856940,34.3571428571428541,22.28571428571428470,21.35714285714285765,23.21428571428571530,23.21428571428571530,28.78571428571428470,39.92857142857143060,49.21428571428571530,56.64285714285714590,39.00000000000000000,21.35714285714285765,13.92857142857142883,11.14285714285714235,8.357142857142857650,4.642857142857143238,2.785714285714285587,1.857142857142857206,0.9285714285714286031];
     
    //**************************************
+   
 
     init {
     // inizializzazione da file 
@@ -54,17 +50,16 @@ global {
     create road from: roads_shapefile;
     road_network <- as_edge_graph(road);
     
-    create hospitals from: hospitals_shapefile;
+    //create hospitals from: hospitals_shapefile;
     
     
     create people number:nb_people {
-        
-        home <- one_of(building);
-   		workplace <- one_of(building);
-   		location <- any_location_in(home);
-        prob_to_move <- 0.0;
+        //location <- any_location_in(one_of(building));
+         home <- one_of(building);
+   		 workplace <- one_of(building);
+   	   	 location <- any_location_in(home);
+         prob_to_move <- 0.0;
         }
- 
     /* ask nb_infected_init among people {
         is_infected <- true;
         }
@@ -74,7 +69,7 @@ global {
     }   */
     }
 }
-// Edifici nella città di Torino
+// Edifici nella città di Toronto
 
 species building {
     string type; 
@@ -85,21 +80,21 @@ species building {
     }
 }
 
-// Strade di Torino 
+// Strade di Toronto
 species road {
     aspect geom {
     draw shape color: #black;
     }
 }
 
-species hospitals {
+/*species hospitals {
     string type; 
     rgb color <- #red  ;
     
     aspect base {
     draw shape color: color ;
     }
-}
+}*/
 
 // Persone
 species people skills:[moving]{
@@ -136,7 +131,7 @@ species people skills:[moving]{
     }
     
     aspect base {
-    draw circle(300) color: color border: #blue;
+    draw circle(10) color: color border: #blue;
     }
 }
 
@@ -144,18 +139,17 @@ species people skills:[moving]{
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
 	parameter "Number of people agents" var: nb_people category: "People" ;
-	
+
     output {
     	monitor date value: current_date;
-
+    	
     display map {
     	species building aspect: base; 
-    	species hospitals aspect: base;
+    	//species hospitals aspect: base;
         species road aspect:geom; 
         species people aspect: base;      
     }
     }
 }
 
-/* Insert your model definition here */
 
