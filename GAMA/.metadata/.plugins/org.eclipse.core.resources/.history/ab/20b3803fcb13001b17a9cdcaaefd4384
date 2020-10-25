@@ -17,7 +17,7 @@ global {
     float step <- 60 #mn;
     
     // data di inizio infezione
-    date starting_date <- date([2020,1,1,3,0,0]);
+    date starting_date <- date([2020,4,1,3,0,0]);
     
 	// Questi file, strade e edifici sono stati preprocessati nel notebook "GIS_Data_Turin"
     file roads_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Traffic/Filtered-top23-neigh/2019-04-01-Toronto.shp");
