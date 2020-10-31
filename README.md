@@ -84,4 +84,12 @@ Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo inte
 
 ![Height_Buildings](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/height_buildings.png?token=ADFSHLBMUUXYD57LHJRN3LS7S2ZDS)
 
+### Ricostruzione Nuclei Familiari 
 
+Dai dati per quartiere, forniti dalla città di Toronto, è disponibile l'informazione sul numero di nuclei formati da 1, 2, 3, 4, 5 + persone.
+
+![1to5+people](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/1_to_5_people.png?token=ADFSHLCU3RF6HSNH7HPNBIC7UXTKO)
+
+Quello che è stato fatto, per permettere una migliore disposizione degli agenti a t = 0 è stato disaggregare i nuclei 5+ in nuclei composti da 5, 6, 7, 8, 9, 10 persone. In questo modo possiamo permetterci di ricreare dinamiche di contagio "familiari" per il luogo di residenza, vincolando gli agenti a stare in un determinato luogo di residenza e spostandosi per lavoro etc. 
+
+![5to10people](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/5_to_10_people.png?token=ADFSHLEUPTKIPTMOUYYZNTC7UXTK6)
