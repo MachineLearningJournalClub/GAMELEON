@@ -16,7 +16,7 @@
 * Dati di caratteristica sulle zone [Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law), da questi si può capire se l'edificio è residenziale oppure commerciale, industriale etc.. 
 
 * Dati su congestione traffico, media settimanale a Toronto nell'anno 2019, scraped from https://www.tomtom.com/en_gb/traffic-index/toronto-traffic/
- ![TrafficFlow](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLBCNPN3LDZQLRRRUT27S2W5S)
+
 
 *  [Dati mobilità Apple](https://covid19.apple.com/mobility), search for “Toronto, Ontario, Canada”.  Aggregati sulla Città intera, divisi per “driving”, “walking” e “transit”. Potrebbero essere un buon modo per ridurre il traffico a livello di città intera durante il lockdown simulato. 
 
@@ -56,7 +56,7 @@ Vedi [tutorial su GAMA](https://gama-platform.github.io/wiki/RoadTrafficModel) p
 Per questa, possiamo integrare i dati TomTom giornalieri con la curva della congestione settimanale di traffico come densità di probabilità delle macchine che vanno in giro. In questo modo avremmo un ottimo modello per il traffico pre-covid
 ![traffic_congestion](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/traffic_congestion.png?token=ADFSHLGRSAUWKU2UEJXQJO27UXTXE)
 
-## Modello Epidemico 
+# Modello Epidemico 
 
 ### Intro
 SIR, considerando che una percentuale dei positivi finirà in ospedale e alcuni invece dovranno fare la quarantena in casa a un certo punto. Questa evidenza potrebbe essere modellata introducendo un parametro (in stile fitness del modello generativo Bianconi-Barabasi) per la **carica virale**. 
@@ -79,7 +79,7 @@ Anche qui, con la massima anonimizzazione, è stata fatta una divisione per fasc
 
 ![ex_infected_data](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/ex_infected_cases.png?token=ADFSHLDDX2DG27ZXBV63ERS7UXTPU)
 
-### Stima della popolazione per palazzo 
+## Stima della popolazione per palazzo 
 
 Per stimare quante persone vivono (o lavorano) in una costruzione, possiamo integrare i dati di popolazione x quartiere con quelli di area + altezza ( [3D Massing Data](https://ckan0.cf.opendata.inter.prod-toronto.ca/tl/dataset/3d-massing)) delle costruzioni. Insieme a questi, integrare i dati di caratteristica sulle zone ([Zoning By Laws](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/zoning-by-law)) sarà essenziale per replicare una distribuzione di popolazione simile a quella effettiva. 
 
@@ -94,3 +94,7 @@ Dai dati per quartiere, forniti dalla città di Toronto, è disponibile l'inform
 Quello che è stato fatto, per permettere una migliore disposizione degli agenti a t = 0 è stato disaggregare i nuclei 5+ in nuclei composti da 5, 6, 7, 8, 9, 10 persone. In questo modo possiamo permetterci di ricreare dinamiche di contagio "familiari" per il luogo di residenza, vincolando gli agenti a stare in un determinato luogo di residenza e spostandosi per lavoro etc. 
 
 ![5to10people](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/5_to_10_people.png?token=ADFSHLEUPTKIPTMOUYYZNTC7UXTK6)
+
+### Ricostruzione numero di appartamenti per building
+
+
