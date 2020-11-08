@@ -95,6 +95,4 @@ Quello che è stato fatto, per permettere una migliore disposizione degli agenti
 
 ![5to10people](https://raw.githubusercontent.com/sazio/MultiAgentCovid/master/Img/5_to_10_people.png?token=ADFSHLEUPTKIPTMOUYYZNTC7UXTK6)
 
-### Ricostruzione numero di appartamenti per building
-
 
