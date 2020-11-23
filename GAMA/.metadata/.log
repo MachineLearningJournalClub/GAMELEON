@@ -1,264 +1,198 @@
-!SESSION 2020-11-12 14:50:19.467 -----------------------------------------------
+!SESSION 2020-11-16 06:30:43.586 -----------------------------------------------
 eclipse.buildId=${build.id}
 java.version=1.8.0_171
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data @noDefault
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:26:58.461
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@f7c6144 (op: ) at offset: 1204, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:31:29.838
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@587ba29e (op: ) at offset: 1232, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:32:23.111
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@2777f623 (op: ) at offset: 1342, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:34:12.879
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@61d28d60 (op: ) at offset: 1634, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:34:18.554
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@47bc9700 (op: ) at offset: 1672, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:34:35.665
-!MESSAGE org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider  - Error on computation of hover information. No hover information available for msi.gama.lang.gaml.gaml.impl.StringLiteralImpl@1371ec5a (op: ) at offset: 1754, length: 2
-
-!STACK 0
-java.lang.NullPointerException
-	at msi.gama.common.util.FileUtils.createLinkToExternalFile(FileUtils.java:197)
-	at msi.gama.lang.gaml.ui.hover.GamlDocumentationProvider.getDocumentation(GamlDocumentationProvider.java:81)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultHoverDocumentationProvider.getDocumentation(DefaultHoverDocumentationProvider.java:26)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getDocumentation(DefaultEObjectHoverProvider.java:117)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfoAsHtml(DefaultEObjectHoverProvider.java:83)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider.getHoverInfo(DefaultEObjectHoverProvider.java:94)
-	at org.eclipse.xtext.ui.editor.hover.html.DefaultEObjectHoverProvider$2.getInfo(DefaultEObjectHoverProvider.java:539)
-	at org.eclipse.xtext.ui.editor.hover.DispatchingEObjectTextHover.getHoverInfo(DispatchingEObjectTextHover.java:41)
-	at msi.gama.lang.gaml.ui.hover.GamlHoverProvider$GamlDispatchingEObjectTextHover.getHoverInfo(GamlHoverProvider.java:137)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:96)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover$2.exec(AbstractEObjectHover.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:527)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:499)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:138)
-	at org.eclipse.xtext.ui.editor.hover.AbstractEObjectHover.getHoverInfo2(AbstractEObjectHover.java:87)
-	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
-
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:55:27.000
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.430
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:07.454
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.432
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:12.167
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.433
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:12.821
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.434
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:13.463
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.435
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:17.736
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.435
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:56:59.818
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.436
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 15:57:01.171
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:11.437
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.872
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.013
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.874
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.015
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.875
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.015
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.876
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.016
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.877
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.016
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.878
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.017
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:06.879
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.018
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.767
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:14.018
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.768
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.363
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.769
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.364
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.770
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.365
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.771
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.366
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.772
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.366
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:25.773
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.367
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:31.176
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.367
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:31.177
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:01:59.368
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:31.178
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.546
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:12:31.179
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.547
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:13:19.354
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.548
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:13:19.357
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.550
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:13:19.358
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.551
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 
 
-!ENTRY org.apache.log4j 4 0 2020-11-12 16:13:19.359
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.552
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.553
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:39.554
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.926
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.927
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.927
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.928
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.929
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.929
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.930
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:41.930
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.356
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.357
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.358
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.359
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.361
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.362
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.363
+!MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
+
+
+!ENTRY org.apache.log4j 4 0 2020-11-23 07:23:43.364
 !MESSAGE org.eclipse.xtext.linking.lazy.LazyLinkingResource  - An element of type msi.gama.lang.gaml.gaml.impl.VarDefinitionImpl is not assignable to the reference TypeRef.ref
 

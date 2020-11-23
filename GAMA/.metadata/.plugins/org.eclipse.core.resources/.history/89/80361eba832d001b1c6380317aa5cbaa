@@ -20,8 +20,6 @@ global {
 	float min_speed <- 15.0 #km / #h;
 	float max_speed <- 50.0 #km / #h; 
 	
-	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
-	
 	
 	// Environment  ------------------------------------------------------------------------
 	// Roads, buildings shapefiles import 
@@ -111,15 +109,11 @@ global {
     
 	    create people number:nb_people {
 	        speed <- rnd(min_speed, max_speed);
-	        /*
 			start_work <- rnd (min_work_start, max_work_start);
 			end_work <- rnd(min_work_end, max_work_end);
-			
+			living_place <- one_of(residential_buildings) ;
 			working_place <- one_of(employement_buildings) ;
 			objective <- "resting";
-			  */
-			living_place <- one_of(residential_buildings) ;  
-			
 			location <- any_location_in(living_place); 
 	        
 	        }
@@ -146,21 +140,16 @@ species road {
 
 
 // Persone
-species people skills:[moving]{
+species people {
 	float speed; 
-	point target;
     rgb color <- #fuchsia ;
-    int staying_counter;
     building living_place <- nil ;
-    /* 
-   
 	building working_place <- nil ;
 	int start_work ;
 	int end_work  ;
 	string objective ; 
 	point the_target <- nil ;
-	*/
-	/*
+		
 	reflex time_to_work when: current_date.hour = start_work and objective = "resting"{
 		objective <- "working" ;
 		the_target <- any_location_in (working_place);
@@ -170,22 +159,7 @@ species people skills:[moving]{
 		objective <- "resting" ;
 		the_target <- any_location_in (living_place); 
 	} 
-	*/	
-	
-	reflex staying when: target = nil {
-		staying_counter <- staying_counter + 1;
-		if flip(staying_counter / staying_coeff) {
-			target <- any_location_in (one_of(building));
-		}
-	}
-		
-	reflex move when: target != nil{
-		do goto target:target on: road_network;
-		if (location = target) {
-			target <- nil;
-			staying_counter <- 0;
-		} 
-	}
+			
 	
 	aspect base {
 		draw circle(10) color: color border: #fuchsia;
