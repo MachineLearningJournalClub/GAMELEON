@@ -17,8 +17,8 @@ global {
 	int max_work_start <- 9;
 	int min_work_end <- 16; 
 	int max_work_end <- 20; 
-	float min_speed <- 0.05 #km / #h;
-	float max_speed <- 0.10 #km / #h; 
+	float min_speed <- 15.0 #km / #h;
+	float max_speed <- 50.0 #km / #h; 
 	
 	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	
@@ -103,10 +103,11 @@ global {
 		
     	
    
-    	// Weighted road network 
+    
 	    create road from:roads_shapefile with:[weight::float(read("weight"))]{
 	    map<road, float> weights_map <- road as_map (each:: each.weight);
 	    road_network <- as_edge_graph(road) with_weights weights_map;
+	    write "Done"; 
 	    }
 	    
 	    

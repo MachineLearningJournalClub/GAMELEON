@@ -10,15 +10,15 @@ model load_shape_file
  
 global {
 	// Global Variables 
-	float step <- 60 #mn;
+	float step <- 10 #mn;
 	date starting_date <- date("2020-01-22-00-00-00");	
-	int nb_people <- 1000; //33312;
+	int nb_people <- 33312;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
 	int min_work_end <- 16; 
 	int max_work_end <- 20; 
-	float min_speed <- 0.05 #km / #h;
-	float max_speed <- 0.10 #km / #h; 
+	float min_speed <- 15.0 #km / #h;
+	float max_speed <- 50.0 #km / #h; 
 	
 	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	
@@ -101,15 +101,11 @@ global {
 		
 		list<building> hospital_buildings <- building  where (each.type ="Institutional Hospital") ;
 		
-    	
-   
-    	// Weighted road network 
-	    create road from:roads_shapefile with:[weight::float(read("weight"))]{
-	    map<road, float> weights_map <- road as_map (each:: each.weight);
-	    road_network <- as_edge_graph(road) with_weights weights_map;
-	    }
-	    
-	    
+    
+    
+    
+	    create road from: roads_shapefile;
+	    road_network <- as_edge_graph(road);
 		 
 		    
     
@@ -140,13 +136,11 @@ species building {
     }
 }
 
-// Strade di Toronto
+// Strade di Torino 
 species road {
-	float weight;
     aspect geom {
     draw shape color: #black;
     }
-     
 }
 
 
