@@ -10,9 +10,9 @@ model load_shape_file
  
 global {
 	// Global Variables 
-	float step <- 0.033 #mn;
-	date starting_date <- date("2020-01-22-06-00-00");	
-	int nb_people <- 100; //33312;
+	float step <- 5 #mn;
+	date starting_date <- date("2020-01-22-00-00-00");	
+	int nb_people <- 1000; //33312;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
 	int min_work_end <- 16; 

@@ -10,15 +10,15 @@ model load_shape_file
  
 global {
 	// Global Variables 
-	float step <- 60 #mn;
-	date starting_date <- date("2020-01-22-00-00-00");	
-	int nb_people <- 1000; //33312;
+	float step <- 0.033 #mn;
+	date starting_date <- date("2020-01-22-06-00-00");	
+	int nb_people <- 100; //33312;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
 	int min_work_end <- 16; 
 	int max_work_end <- 20; 
-	float min_speed <- 0.05 #km / #h;
-	float max_speed <- 0.10 #km / #h; 
+	float min_speed <- 1.0 #km / #h;
+	float max_speed <- 5.0 #km / #h; 
 	
 	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	
@@ -115,14 +115,13 @@ global {
     
 	    create people number:nb_people {
 	        speed <- rnd(min_speed, max_speed);
-	        /*
+	        
 			start_work <- rnd (min_work_start, max_work_start);
 			end_work <- rnd(min_work_end, max_work_end);
 			
+			living_place <- one_of(residential_buildings) ;  
 			working_place <- one_of(employement_buildings) ;
 			objective <- "resting";
-			  */
-			living_place <- one_of(residential_buildings) ;  
 			
 			location <- any_location_in(living_place); 
 	        
@@ -154,29 +153,31 @@ species road {
 // Persone
 species people skills:[moving]{
 	float speed; 
-	point target;
+	int staying_counter; 
+	
     rgb color <- #fuchsia ;
-    int staying_counter;
+    
     building living_place <- nil ;
-    /* 
-   
-	building working_place <- nil ;
+    building working_place <- nil ;
+     
+	
 	int start_work ;
 	int end_work  ;
 	string objective ; 
-	point the_target <- nil ;
-	*/
-	/*
+	point target <- nil;
+
+	
+	
 	reflex time_to_work when: current_date.hour = start_work and objective = "resting"{
 		objective <- "working" ;
-		the_target <- any_location_in (working_place);
+		target <- any_location_in (working_place);
 	}
 		
 	reflex time_to_go_home when: current_date.hour = end_work and objective = "working"{
 		objective <- "resting" ;
-		the_target <- any_location_in (living_place); 
+		target <- any_location_in (living_place); 
 	} 
-	*/	
+	
 	
 	reflex staying when: target = nil {
 		staying_counter <- staying_counter + 1;
@@ -203,6 +204,12 @@ species people skills:[moving]{
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
 	parameter "Number of people agents" var: nb_people category: "People" ;
+	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 2 max: 8;
+    parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
+    parameter "Earliest hour to end work" var: min_work_end category: "People" min: 12 max: 16;
+    parameter "Latest hour to end work" var: max_work_end category: "People" min: 16 max: 23;
+    parameter "minimal speed" var: min_speed category: "People" min: 0.1 #km/#h ;
+    parameter "maximal speed" var: max_speed category: "People" max: 5 #km/#h;
 
     output {
     display map {
@@ -213,5 +220,5 @@ experiment main_experiment type:gui{
     }
 }
 
-/* Insert your model definition here */
+
 

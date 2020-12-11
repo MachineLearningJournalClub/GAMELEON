@@ -10,9 +10,9 @@ model load_shape_file
  
 global {
 	// Global Variables 
-	float step <- 0.033 #mn;
-	date starting_date <- date("2020-01-22-06-00-00");	
-	int nb_people <- 100; //33312;
+	float step <- 60 #mn;
+	date starting_date <- date("2020-01-22-00-00-00");	
+	int nb_people <- 1000; //33312;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
 	int min_work_end <- 16; 
@@ -204,12 +204,6 @@ species people skills:[moving]{
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
 	parameter "Number of people agents" var: nb_people category: "People" ;
-	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 2 max: 8;
-    parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
-    parameter "Earliest hour to end work" var: min_work_end category: "People" min: 12 max: 16;
-    parameter "Latest hour to end work" var: max_work_end category: "People" min: 16 max: 23;
-    parameter "minimal speed" var: min_speed category: "People" min: 0.1 #km/#h ;
-    parameter "maximal speed" var: max_speed category: "People" max: 5 #km/#h;
 
     output {
     display map {
@@ -220,5 +214,5 @@ experiment main_experiment type:gui{
     }
 }
 
-
+/* Insert your model definition here */
 
