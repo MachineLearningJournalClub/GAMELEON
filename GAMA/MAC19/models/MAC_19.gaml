@@ -1,7 +1,7 @@
 /**
 * Name: MultiAgentCovid_19
 * Based on the internal empty template. 
-* Author: Simone Azeglio, Matteo Fordiani, Alessandro Grondona
+* Author: Simone Azeglio, Matteo Fordiani
 * Tags: 
 */
 
@@ -10,8 +10,8 @@ model load_shape_file
  
 global {
 	// Global Variables 
-	float step <- 0.033 #mn;
-	date starting_date <- date("2020-01-22-06-00-00");	
+	float step <- 60 #mn;
+	date starting_date <- date("2020-01-22-00-00-00");	
 	int nb_people <- 100; //33312;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
@@ -104,10 +104,13 @@ global {
     	
    
     	// Weighted road network 
-	    create road from:roads_shapefile with:[weight::float(read("weight"))]{
-	    map<road, float> weights_map <- road as_map (each:: each.weight);
+	    create road from:roads_shapefile with:[weight::float(read("weight"))];
+	    
+	    map<road, float> weights_map <- road as_map (each::each.weight);
+	    //write weights_map;  // check - it works! 
 	    road_network <- as_edge_graph(road) with_weights weights_map;
-	    }
+	     
+	    
 	    
 	    
 		 
@@ -165,8 +168,10 @@ species people skills:[moving]{
 	int end_work  ;
 	string objective ; 
 	point target <- nil;
-
-	
+ 
+	// Qua si possono metter diversi reflex in base a quali posti
+	// vogliamo far visitare all'agente: chiesa, parco... con orari precisi o 
+	// probabilità associata all'azione in base all'ora / giorno 
 	
 	reflex time_to_work when: current_date.hour = start_work and objective = "resting"{
 		objective <- "working" ;
@@ -182,17 +187,25 @@ species people skills:[moving]{
 	reflex staying when: target = nil {
 		staying_counter <- staying_counter + 1;
 		if flip(staying_counter / staying_coeff) {
-			target <- any_location_in (one_of(building));
+			target <- any_location_in(one_of(building));
 		}
 	}
-		
+	
+	// Importante, in questo modo salviamo i cammini di ogni agente!!
+	// sarebbe bene impostare abitudini (ad esempio, stesso posto per andare a lavoro 
+	// e stessa casa) 	
 	reflex move when: target != nil{
-		do goto target:target on: road_network;
-		if (location = target) {
-			target <- nil;
-			staying_counter <- 0;
-		} 
-	}
+		path path_to_store <- goto(target:target, on:road_network, return_path:true);
+		//write path_to_store; // check - it works! 
+			 if (location = target) {
+				target <- nil;
+				staying_counter <- 0;
+			}  
+			
+		}
+	
+	
+	
 	
 	aspect base {
 		draw circle(10) color: color border: #fuchsia;
