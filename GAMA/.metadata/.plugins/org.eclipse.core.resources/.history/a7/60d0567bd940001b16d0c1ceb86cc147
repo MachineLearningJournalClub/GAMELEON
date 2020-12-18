@@ -406,6 +406,9 @@ species people skills:[moving]{
        	do die;
     }
 	
+	
+	
+	
 	aspect base {
 		draw circle(10) color: color border: #fuchsia;
 	}
