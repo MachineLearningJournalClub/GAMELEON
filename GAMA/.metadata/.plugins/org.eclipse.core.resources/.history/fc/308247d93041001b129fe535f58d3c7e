@@ -9,9 +9,9 @@ model load_shape_file
 global {
 	// Global Variables 
 	//Number of susceptible host at init
-    int number_S <- 1000;
+    int number_S <- 700;
     //Number of infected host at init
-    int number_I <- 200;
+    int number_I <- 150;
     //Number of resistant host at init
     int number_R <- 0 ;
     //Rate for the infection success 
