@@ -25,11 +25,8 @@ global {
 	
 	// Environment  ------------------------------------------------------------------------
 	// Roads, buildings shapefiles import 
-    //file roads_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
-    //file buildings_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
-    
-    file roads_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
-    file buildings_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp ");
+    file roads_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+    file buildings_shapefile <- file("C:/Users/simon/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
      
     
     // Instantiating Road Network 
