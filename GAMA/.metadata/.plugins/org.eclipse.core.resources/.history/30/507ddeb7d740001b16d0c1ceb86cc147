@@ -11,7 +11,7 @@ global {
 	//Number of susceptible host at init
     int number_S <- 700;
     //Number of infected host at init
-    int number_I <- 150;
+    int number_I <- 60;
     //Number of resistant host at init
     int number_R <- 0 ;
     //Rate for the infection success 
@@ -46,7 +46,7 @@ global {
 	int max_stuff_start <- 18;  
 	int max_stuff_end <- 22; 
 	
-	float min_speed <- 5.0 #km / #h;
+	float min_speed <- 15.0 #km / #h;
 	float max_speed <- 50.0 #km / #h; 
 	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	
@@ -423,14 +423,8 @@ experiment main_experiment type:gui{
     parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
     parameter "Earliest hour to end work" var: min_work_end category: "People" min: 12 max: 16;
     parameter "Latest hour to end work" var: max_work_end category: "People" min: 16 max: 23;
-    
-    parameter "Earliest hour to start doing some stuff" var: min_stuff_start category: "People" min: 15 max: 18;
-    parameter "Latest hour to start doing some stuff" var: max_stuff_start category: "People" min: 18 max: 20;
-    parameter "Earliest hour to end doing some stuff" var: min_stuff_end category: "People" min: 16 max: 18;
-    parameter "Latest hour to end doing some stuff" var: max_stuff_end category: "People" min: 20 max: 23;
-    
-    parameter "minimal speed" var: min_speed category: "People" min: 1 #km/#h ;
-    parameter "maximal speed" var: max_speed category: "People" max: 50 #km/#h;
+    parameter "minimal speed" var: min_speed category: "People" min: 0.1 #km/#h ;
+    parameter "maximal speed" var: max_speed category: "People" max: 5 #km/#h;
     parameter "Number of people agents" var: nb_people category: "People" ;
 	parameter "Number of Susceptible" var: number_S ;// The number of susceptible
     parameter "Number of Infected" var: number_I ;	// The number of infected
@@ -449,7 +443,7 @@ experiment main_experiment type:gui{
         species people aspect: base;      
     }
     
-    display chart_people refresh: every(24#cycles) {
+    display chart_people refresh: every(10#cycles) {
 			chart "Susceptible People" type: series background: #lightgray style: exploded {
 				data "susceptiblep" value: people count (each.is_susceptible) color: #green;
 				data "infectedp" value: people count (each.is_infected) color: #red;
@@ -457,7 +451,7 @@ experiment main_experiment type:gui{
 			}
 		}
 		
-	display chart_building refresh: every(24#cycles) {
+	display chart_building refresh: every(10#cycles) {
 		chart "Susceptible Buildings" type: series background: #lightgray style: exploded {
 			data "infectedb" value: building count (each.is_infected) color: #red;
 			data "immuneb" value: building count (!each.is_infected) color: #blue;

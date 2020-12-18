@@ -11,7 +11,7 @@ global {
 	//Number of susceptible host at init
     int number_S <- 700;
     //Number of infected host at init
-    int number_I <- 150;
+    int number_I <- 100;
     //Number of resistant host at init
     int number_R <- 0 ;
     //Rate for the infection success 
