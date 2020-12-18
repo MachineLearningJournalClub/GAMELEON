@@ -415,9 +415,6 @@ species people skills:[moving]{
 
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
-	float seedValue <- 137.0; 
-	float seed <- seedValue; 
-	
 	parameter "Number of people agents" var: nb_people category: "People" ;
 	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 5 max: 8;
     parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;

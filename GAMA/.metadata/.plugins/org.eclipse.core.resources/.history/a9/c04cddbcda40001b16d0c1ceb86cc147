@@ -415,9 +415,6 @@ species people skills:[moving]{
 
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
-	float seedValue <- 137.0; 
-	float seed <- seedValue; 
-	
 	parameter "Number of people agents" var: nb_people category: "People" ;
 	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 5 max: 8;
     parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
@@ -449,7 +446,7 @@ experiment main_experiment type:gui{
         species people aspect: base;      
     }
     
-    display chart_people refresh: every(8#cycles) {
+    display chart_people refresh: every(24#cycles) {
 			chart "Susceptible People" type: series background: #lightgray style: exploded {
 				data "susceptiblep" value: people count (each.is_susceptible) color: #green;
 				data "infectedp" value: people count (each.is_infected) color: #red;
@@ -457,7 +454,7 @@ experiment main_experiment type:gui{
 			}
 		}
 		
-	display chart_building refresh: every(8#cycles) {
+	display chart_building refresh: every(24#cycles) {
 		chart "Susceptible Buildings" type: series background: #lightgray style: exploded {
 			data "infectedb" value: building count (each.is_infected) color: #red;
 			data "immuneb" value: building count (!each.is_infected) color: #blue;
