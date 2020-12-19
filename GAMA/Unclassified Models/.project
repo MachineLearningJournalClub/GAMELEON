@@ -27,6 +27,11 @@
 			<location>/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv</location>
 		</link>
 		<link>
+			<name>external/Buildings.csv</name>
+			<type>1</type>
+			<location>/Users/simoneazeglio/Desktop/MAS/Data/Buildings.csv</location>
+		</link>
+		<link>
 			<name>external/height_buildings_1st_neigh.shp</name>
 			<type>1</type>
 			<location>/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp</location>

@@ -250,7 +250,7 @@ global {
 	reflex save_agent_attribute{ //when: cycle = 10 {
 		ask people {
 			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
-			save [name, cycle, location, living_place, working_place, stuff_place, is_susceptible, is_infected, is_immune] to: "/Volumes/DATA/MAS/Data/Agents/Agents_"+ string(cycle) +".csv" type:"csv" rewrite: false;
+			save [name, cycle, location, living_place, working_place, stuff_place, is_susceptible, is_infected, is_immune] to: "/Volumes/DATA/MAS/Data/Agents/Agents"+ string(cycle) +".csv" type:"csv" rewrite: false;
 			// save all the attributes values of the agent in a file. The file is overwritten at every save
 			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
 		}
