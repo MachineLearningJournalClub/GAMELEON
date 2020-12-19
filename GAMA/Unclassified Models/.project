@@ -22,6 +22,11 @@
 			<location>/Users/simoneazeglio/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp</location>
 		</link>
 		<link>
+			<name>external/Agents.csv</name>
+			<type>1</type>
+			<location>/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv</location>
+		</link>
+		<link>
 			<name>external/height_buildings_1st_neigh.shp</name>
 			<type>1</type>
 			<location>/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp</location>

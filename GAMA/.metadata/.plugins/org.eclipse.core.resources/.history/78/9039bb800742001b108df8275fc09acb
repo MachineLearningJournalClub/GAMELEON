@@ -248,13 +248,13 @@ global {
         }
 	    }
 	    
-	    //Save the agents when the cycle is equals to 10
-	reflex save_bug_attribute{ //when: cycle = 10 {
+	    //Save the agents bug when the cycle is equals to 100
+	reflex save_bug_attribute when: cycle = 10{
 		ask people {
-			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
-			save [name, cycle, location] to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: false;
-			// save all the attributes values of the agent in a file. The file is overwritten at every save
-			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
+			// save the values of the variables name, speed and size to the csv file; the rewrite facet is set to false to continue to write in the same file
+			save [name, location, living_place, working_place, stuff_place] to: "../results/bug.csv" type:"csv" rewrite: false;
+			// save all the attributes values of the bug agents in a file. The file is overwritten at every save
+			save people to: "../results/bug_agents.csv" type:"csv" rewrite: true;
 		}
 		//Pause the model as the data are saved
 		do pause;
