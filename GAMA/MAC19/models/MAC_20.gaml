@@ -1,20 +1,17 @@
 /**
 * Name: MultiAgentCovid_19
-* Based on the internal empty template. 
 * Author: Simone Azeglio, Matteo Fordiani
-* Tags: 
+* Tags: epidemics, covid19, multiplex, machinelearning
 */
 
-// Per caricare file GIS 
 model load_shape_file 
  
 global {
 	// Global Variables 
-	// Global Variables 
 	//Number of susceptible host at init
-    int number_S <- 700;
+    int number_S <- 1000;
     //Number of infected host at init
-    int number_I <- 50;
+    int number_I <- 200;
     //Number of resistant host at init
     int number_R <- 0 ;
     //Rate for the infection success 
@@ -36,29 +33,37 @@ global {
 	float step <- 60 #mn;
 	date starting_date <- date("2020-01-22-00-00-00");	
 	int nb_people <- number_S+number_I+number_R;
+	
+	// working time 
 	int min_work_start <- 6;
 	int max_work_start <- 9;
-	int min_work_end <- 16; 
-	int max_work_end <- 20; 
-	float min_speed <- 15.0 #km / #h;
+	int min_work_end <- 15; 
+	int max_work_end <- 18; 
+	
+	// free time 
+	int min_stuff_start <- 15; 
+	int min_stuff_end <- 19;
+	int max_stuff_start <- 18;  
+	int max_stuff_end <- 22; 
+	
+	float min_speed <- 5.0 #km / #h;
 	float max_speed <- 50.0 #km / #h; 
-	
-	
 	float staying_coeff update: 10.0 ^ (1 + min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	
 	// Environment  ------------------------------------------------------------------------
 	// Roads, buildings shapefiles import 
-    file roads_shapefile <- file("D:/MultiAgentCovid/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
-    file buildings_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+    // file roads_shapefile <- file("D:/MultiAgentCovid/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+    // file buildings_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+    file roads_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+    file buildings_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
      
-    
     // Instantiating Road Network 
     geometry shape <- envelope(roads_shapefile);
     graph road_network;
     
-    
   
     init {
+    	
 	    //create building from: buildings_shapefile; ----------------------------------------------------
 	    create building from: buildings_shapefile with: [type::string(read ("ZN_ZONE_EX"))] {
 	    	// Residential buildings are split up in the following categories:
@@ -80,28 +85,23 @@ global {
 				else if type ="Open Space" or type ="Open Space Recreation" or type="Open Space Natural"{
 					color <- #yellow ;
 				}
-				
 			// Institutional Education --> Schools + Universities 
 				else if type ="Institutional School" or type ="Institutional Education"{
 					color <- #orange ;
 				}
-				
 			// Place of Worship --> Churches, temples ...  	
 				else if type ="Institutional Place of Worship" {
 					color <- #maroon ;
 				}
-				
 			// Institutional General --> Governement & similar
-			
 				else if type="Institutional General"{
 					color <- #aqua;		
 				}
 			// Hospitals 	
 				else if type ="Institutional Hospital" {
 					color <- #red ;
-				}
-				
-			// Open Space Golf, Open Space Marina, Utility & Transportation, Uility, UNKNOWN
+				}	
+			// Open Space Golf, Open Space Marina, Utility & Transportation, Utility, UNKNOWN
 			}
     
     	list<building> residential_buildings <- building where (each.type="Residential" or each.type="Residential Detached"
@@ -132,21 +132,34 @@ global {
 	    map<road, float> weights_map <- road as_map (each::each.weight);
 	    //write weights_map;  // check - it works! 
 	    road_network <- as_edge_graph(road) with_weights weights_map;
-	     
-	    
-	    
-	    
 		 
 		    
     
 	    create people number:number_S {
 	        speed <- rnd(min_speed, max_speed);
 	        
-			start_work <- rnd (min_work_start, max_work_start);
+			start_work <- rnd(min_work_start, max_work_start);
 			end_work <- rnd(min_work_end, max_work_end);
 			
+			start_stuff <- rnd(min_stuff_start, max_stuff_start);
+			end_stuff <- rnd(min_stuff_end, max_stuff_end);
+			
 			living_place <- one_of(residential_buildings);  
-			working_place <- one_of(employement_buildings);
+			
+			if flip(0.666){
+				working_place <- one_of(employement_buildings);
+			}
+			else{
+				working_place <- one_of(education_buildings);
+			}
+			
+			if flip(0.5){
+				stuff_place <- one_of(commercial_buildings);
+			}
+			else{
+				stuff_place <- one_of(open_space_buildings);
+			}
+			
 			objective <- "resting";
 			 
 			location <- any_location_in(living_place); 
@@ -163,8 +176,25 @@ global {
 			start_work <- rnd (min_work_start, max_work_start);
 			end_work <- rnd(min_work_end, max_work_end);
 			
+			start_stuff <- rnd(min_stuff_start, max_stuff_start);
+			end_stuff <- rnd(min_stuff_end, max_stuff_end);
+			
 			living_place <- one_of(residential_buildings);  
-			working_place <- one_of(employement_buildings);
+			
+			if flip(0.666){
+				working_place <- one_of(employement_buildings);
+			}
+			else{
+				working_place <- one_of(education_buildings);
+			}
+			
+			if flip(0.5){
+				stuff_place <- one_of(commercial_buildings);
+			}
+			else{
+				stuff_place <- one_of(open_space_buildings);
+			}
+			
 			objective <- "resting";
 			 
 			location <- any_location_in(living_place); 
@@ -183,14 +213,30 @@ global {
 			start_work <- rnd (min_work_start, max_work_start);
 			end_work <- rnd(min_work_end, max_work_end);
 			
-			living_place <- one_of(residential_buildings);  
-			working_place <- one_of(employement_buildings);
+			start_stuff <- rnd(min_stuff_start, max_stuff_start);
+			end_stuff <- rnd(min_stuff_end, max_stuff_end);
+			
+			living_place <- one_of(residential_buildings); 
+			 
+			if flip(0.666){
+				working_place <- one_of(employement_buildings);
+			}
+			else{
+				working_place <- one_of(education_buildings);
+			}
+			
+			if flip(0.5){
+				stuff_place <- one_of(commercial_buildings);
+			}
+			else{
+				stuff_place <- one_of(open_space_buildings);
+			}
+			
+			
 			objective <- "resting";
 			 
 			location <- any_location_in(living_place); 
-			living_place <- one_of(residential_buildings) ;  
 		
-			location <- any_location_in(living_place); 
 			
 			is_susceptible <-  false;
             is_infected <-  false;
@@ -198,10 +244,36 @@ global {
             color <-  #fuchsia; 
         
         }
-        
-       
-        
 	    }
+	    
+	    //Save the agents on each cycle (1 cycle = 1 hour here) 
+	reflex save_agent_attribute{ //when: cycle = 10 {
+		ask people {
+			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
+			save [name, cycle, location, living_place, working_place, stuff_place, is_susceptible, is_infected, is_immune] to: "/Volumes/DATA/MAS/Data/Agents/Agents_"+ string(cycle) +".csv" type:"csv" rewrite: false;
+			// save all the attributes values of the agent in a file. The file is overwritten at every save
+			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
+		}
+		//Pause the model as the data are saved
+		//do pause;
+	}
+	
+	
+	//  Save buildings location, run once 
+	/*
+	reflex save_building_attribute when: cycle = 1 {
+		ask building {
+			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
+			save [name, location] to: "/Users/simoneazeglio/Desktop/MAS/Data/Buildings.csv" type:"csv" rewrite: false;
+			// save all the attributes values of the agent in a file. The file is overwritten at every save
+			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
+		}
+		//Pause the model as the data are saved
+		//do pause;
+	}
+	*/
+	
+	
 	}
 // Edifici nella città di Toronto
 
@@ -212,10 +284,8 @@ species building {
     float infection_time;
     list<people> people_in_building;
     
-    
     aspect base {
     draw shape color: color ;
-   	
     }
     
     reflex get_people when: is_infected {
@@ -233,7 +303,6 @@ species building {
     		agt.is_infected <- true;
     		agt.is_susceptible <- false;
     		agt.is_immune <- false;
-    		
     		}
     	}
 	}
@@ -251,8 +320,6 @@ species road {
      
 }
 
-
-
 // Persone
 species people skills:[moving]{
 	float speed; 
@@ -262,10 +329,13 @@ species people skills:[moving]{
     
     building living_place <- nil ;
     building working_place <- nil ;
+    building stuff_place <- nil; 
      
-	
 	int start_work ;
 	int end_work  ;
+	int start_stuff; 
+	int end_stuff; 
+	
 	string objective ; 
 	point target <- nil;
 	
@@ -282,12 +352,17 @@ species people skills:[moving]{
 		objective <- "working" ;
 		target <- any_location_in (working_place);
 	}
+	
+	reflex time_to_do_stuff when: current_date.hour = start_stuff and objective = "working"{
+		objective <- "doing_stuff" ;
+		target <- any_location_in(stuff_place);
 		
-	reflex time_to_go_home when: current_date.hour = end_work and objective = "working"{
+	}
+		
+	reflex time_to_go_home when: current_date.hour = end_work and objective = "doing_stuff"{
 		objective <- "resting" ;
 		target <- any_location_in (living_place); 
 	} 
-	
 	
 	reflex staying when: target = nil {
 		staying_counter <- staying_counter + 1;
@@ -359,9 +434,6 @@ species people skills:[moving]{
        	do die;
     }
 	
-	
-	
-	
 	aspect base {
 		draw circle(10) color: color border: #fuchsia;
 	}
@@ -371,13 +443,22 @@ species people skills:[moving]{
 
 // Costruzione interfaccia grafica
 experiment main_experiment type:gui{
+	float seedValue <- 137.0; 
+	float seed <- seedValue; 
+	
 	parameter "Number of people agents" var: nb_people category: "People" ;
-	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 2 max: 8;
+	parameter "Earliest hour to start work" var: min_work_start category: "People" min: 5 max: 8;
     parameter "Latest hour to start work" var: max_work_start category: "People" min: 8 max: 12;
     parameter "Earliest hour to end work" var: min_work_end category: "People" min: 12 max: 16;
     parameter "Latest hour to end work" var: max_work_end category: "People" min: 16 max: 23;
-    parameter "minimal speed" var: min_speed category: "People" min: 0.1 #km/#h ;
-    parameter "maximal speed" var: max_speed category: "People" max: 5 #km/#h;
+    
+    parameter "Earliest hour to start doing some stuff" var: min_stuff_start category: "People" min: 15 max: 18;
+    parameter "Latest hour to start doing some stuff" var: max_stuff_start category: "People" min: 18 max: 20;
+    parameter "Earliest hour to end doing some stuff" var: min_stuff_end category: "People" min: 16 max: 18;
+    parameter "Latest hour to end doing some stuff" var: max_stuff_end category: "People" min: 20 max: 23;
+    
+    parameter "minimal speed" var: min_speed category: "People" min: 1 #km/#h ;
+    parameter "maximal speed" var: max_speed category: "People" max: 50 #km/#h;
     parameter "Number of people agents" var: nb_people category: "People" ;
 	parameter "Number of Susceptible" var: number_S ;// The number of susceptible
     parameter "Number of Infected" var: number_I ;	// The number of infected
@@ -396,7 +477,7 @@ experiment main_experiment type:gui{
         species people aspect: base;      
     }
     
-    display chart_people refresh: every(10#cycles) {
+    display chart_people refresh: every(8#cycles) {
 			chart "Susceptible People" type: series background: #lightgray style: exploded {
 				data "susceptiblep" value: people count (each.is_susceptible) color: #green;
 				data "infectedp" value: people count (each.is_infected) color: #red;
@@ -404,7 +485,7 @@ experiment main_experiment type:gui{
 			}
 		}
 		
-	display chart_building refresh: every(10#cycles) {
+	display chart_building refresh: every(8#cycles) {
 		chart "Susceptible Buildings" type: series background: #lightgray style: exploded {
 			data "infectedb" value: building count (each.is_infected) color: #red;
 			data "immuneb" value: building count (!each.is_infected) color: #blue;
