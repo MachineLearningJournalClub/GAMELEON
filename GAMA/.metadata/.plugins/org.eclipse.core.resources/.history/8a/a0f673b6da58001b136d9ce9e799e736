@@ -12,7 +12,7 @@ global {
 	// Global Variables 
 	// Global Variables 
 	//Number of susceptible host at init
-    int number_S <- 5000 ;
+    int number_S <- 10000 ;
     //Number of infected host at init
     int number_I <- 7 ;
     //Number of resistant host at init
@@ -23,10 +23,8 @@ global {
 	float nu <- 0.03;
 	//Rate for resistance 
 	float delta <- 0.95;
-	
 	//Number total of hosts <- sostituisco in number of people
 	// int numberHosts <- number_S+number_I+number_R;
-	
 	float infection_time <- 72 #h;
 	float R0 ;
 	float step <- 60 #mn;
@@ -205,22 +203,22 @@ global {
         }
 	    }
 	    
-	     
+	    /* 
 	    //Save the agents on each cycle (1 cycle = 1 hour here) 
 	reflex save_agent_attribute{ //when: cycle = 10 {
 		ask people {
 			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
-			save [name, cycle, location, living_place, working_place, is_susceptible, is_infected, is_immune] to: "/Volumes/DATA/MAS/Data/Agents/Agents_"+ string(cycle) +".csv" type:"csv" rewrite: false;
+			save [name, cycle, location, living_place, working_place, stuff_place, is_susceptible, is_infected, is_immune] to: "/Volumes/DATA/MAS/Data/Agents/Agents_"+ string(cycle) +".csv" type:"csv" rewrite: false;
 			// save all the attributes values of the agent in a file. The file is overwritten at every save
 			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
 		}
 		//Pause the model as the data are saved
 		//do pause;
 	}
-	
+	*/
 	
 	//  Save buildings location, run once 
-	
+	/*
 	reflex save_building_attribute when: cycle = 1 {
 		ask building {
 			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
@@ -231,7 +229,7 @@ global {
 		//Pause the model as the data are saved
 		//do pause;
 	}
-	
+	*/
 	    
 	}
 // Edifici nella città di Toronto
@@ -334,7 +332,7 @@ species people skills:[moving]{
     building working_place <- nil ;
     building school <- nil;
     building worship_place <- nil;
-    // building stuff_place <- nil;
+    building stuff_place <- nil;
     
 	float infection_time <-nil;
 	float hospitalization_time <- nil;
