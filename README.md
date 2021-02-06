@@ -1,6 +1,8 @@
 # Pretty GAMELEON : Pretty General Agent-based Model (for) Epidemiological (and) Logistical Enquiries On Networks
 ## Covid19 Multi Agent Epidemic Modelling - City of Toronto 
 
+![GAMELEON](https://raw.githubusercontent.com/sazio/GAMELEON/master/Img/GAMELEON.png)
+
 
 ## Dati [Google Drive](https://drive.google.com/drive/folders/1U4CRamdenX-lpAS9oQFKIzZzWV3VjLcH?usp=sharing): 
 
