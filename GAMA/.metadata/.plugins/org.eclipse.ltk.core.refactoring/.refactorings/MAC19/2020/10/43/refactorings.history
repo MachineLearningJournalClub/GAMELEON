@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;MAC19/models/New Model.gaml&apos; to &apos;MAC19.gaml&apos;" description="Rename resource &apos;New Model.gaml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="models/New Model.gaml" name="MAC19.gaml" stamp="1603281423046" updateReferences="true"/>
-</session>

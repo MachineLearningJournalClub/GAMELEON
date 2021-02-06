@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Unclassified Models/models/MAC_20(1).gaml&apos; to &apos;MAC_20_final.gaml&apos;" description="Rename resource &apos;MAC_20(1).gaml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="models/MAC_20(1).gaml" name="MAC_20_final.gaml" stamp="1611443626540" updateReferences="true"/>
-</session>
