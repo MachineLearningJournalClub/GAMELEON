@@ -1,2 +1,2 @@
-Wear a Mask before entering! 
+# Wear a Mask before entering! 
 ![masked_Gameleon](https://raw.githubusercontent.com/sazio/GAMELEON/master/Img/GAMELEON_Masked.png)
