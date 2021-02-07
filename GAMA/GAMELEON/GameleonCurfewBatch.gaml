@@ -445,7 +445,7 @@ species people skills: [moving] {
 		}
 	}
 	reflex write_data when: current_date.hour = 0 {
-		save [cycle, string(beta), string(curfew), string(curfew_delay), string(working_place), string(living_place), self.is_infected, self.is_immune, self.is_dead] to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
+		save [cycle, string(beta), string(curfew), string(curfew_time), string(curfew_delay), string(working_place), string(living_place), self.is_infected, self.is_immune, self.is_dead] to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
 	}
 	
 
