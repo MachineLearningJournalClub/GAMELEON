@@ -18,7 +18,7 @@ global {
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
-	float beta <- 0.1; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
+	float beta <- 0.025; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
 	//Modifier for the baseline prob
 	float beta_baseline <- 0.0;
 	//Mortality rate for the host
@@ -56,20 +56,24 @@ global {
 	(1 + 10 * min([abs(current_date.hour - 9), abs(current_date.hour - 12), abs(current_date.hour - 18)]));
 	float weekend_workers; // % of people working on the weekends
 
+
 	// Environment  ------------------------------------------------------------------------
 	// Roads, buildings shapefiles import 
 	//file roads_shapefile <- file("D:/MultiAgentCovid/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
 	//file buildings_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
 	//file churches_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/Churches_Toronto.shp");
 	
-	file roads_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
-    file buildings_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
-    file churches_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/Churches_Toronto.shp");
+	file roads_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+	file buildings_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+	file churches_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Buildings/buildings_shp/Churches_Toronto.shp");
+    
 
 	// Instantiating Road Network 
 	geometry shape <- envelope(roads_shapefile);
 	graph road_network;
 
+	// int n_inf
+	// reflex globale che fa ask buildings e somma gli n_inf
 	init {
 	//create building from: buildings_shapefile; ----------------------------------------------------
 		create building from: buildings_shapefile with: [type:: string(read("ZN_ZONE_EX"))] {
@@ -104,11 +108,11 @@ global {
 		}
 
 		list<building> residential_buildings <- building where (each.type = "Residential" or each.type = "Residential Detached" or each.type = "Residential Apartment" or
-		each.type = "Residential Multiple Dwelling" or each.type = "Residential Apartment Commercial" or each.type = "Residential Semi Detached" or
+		each.type = "Residential Multiple Dwelling"  or each.type = "Residential Semi Detached" or each.type = "Residential Apartment Commercial" or
 		each.type = "Residential Townhouse");
 		list<building> employement_buildings <- building where (each.type = "Employment Industrial" or each.type = "Employment Light Industrial" or
-		each.type = "Employment Heavy Industrial" or each.type = "Employment Industrial Office" or each.type = "Employment Industrial Commercial");
-		list<building> commercial_buildings <- building where (each.type = "Commercial Residential Employment" or each.type = "Commercial Local" or
+		each.type = "Employment Heavy Industrial" or each.type = "Residential Apartment Commercial" or each.type = "Employment Industrial Office" or each.type = "Employment Industrial Commercial");
+		list<building> commercial_buildings <- building where (each.type = "Commercial Residential Employment" or each.type = "Residential Apartment Commercial" or each.type = "Commercial Local" or
 		each.type = "Commercial Residential");
 		list<building> open_space_buildings <- building where (each.type = "Open Space" or each.type = "Open Space Recreation" or each.type = "Open Space Natural");
 		list<building> education_buildings <- building where (each.type = "Institutional School" or each.type = "Institutional Education");
@@ -231,40 +235,8 @@ global {
 			is_infected <- false;
 			is_immune <- true;
 			color <- #fuchsia;
-		} }
-		
-		 //Save the agents on each cycle (1 cycle = 1 hour here) 
-	reflex save_agent_attribute{ //when: cycle = 10 {
-		ask people {
-			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
-			save [name, cycle, location, living_place, working_place,worship_place, school, stuff_place_1,stuff_place_2, is_susceptible, is_infected, is_immune] to: "/Users/simoneazeglio/Desktop/MAS/Data/AgentsBatch/Agents_"+ string(cycle) +".csv" type:"csv" rewrite: false;
-			// save all the attributes values of the agent in a file. The file is overwritten at every save
-			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
-		}
-		//Pause the model as the data are saved
-		//do pause;
-	}
-	
-	
-	//  Save buildings location, run once 
-	
-	reflex save_building_attribute when: cycle = 1 {
-		ask building {
-			// save the values of the variables name, location etc.. to the csv file; the rewrite facet is set to false to continue to write in the same file
-			save [name, location] to: "/Users/simoneazeglio/Desktop/MAS/Data/Buildings.csv" type:"csv" rewrite: false;
-			// save all the attributes values of the agent in a file. The file is overwritten at every save
-			// save people to: "/Users/simoneazeglio/Desktop/MAS/Data/Agents.csv" type:"csv" rewrite: true;
-		}
-		//Pause the model as the data are saved
-		//do pause;
-	} 
-		
-		
-		
-		
-		
-		}
-		// Edifici nella città di Toronto
+		} } }
+
 species building {
 	string type;
 	bool is_residential <- false;
@@ -281,6 +253,10 @@ species building {
 	aspect base {
 		draw shape color: color;
 	}
+
+	//  Save buildings location, run once 
+
+
 	//TODO: Metti bene la formazione dei gruppi e delle famiglie
 	//TODO: In caso non funzionasse sto loop modificando gli index, proviamo con N among (inhabitants) 
 	action group {
@@ -351,21 +327,7 @@ species building {
 		do families();
 	}
 
-	//	reflex print {
-	//		if (length(inhabitants) != 0) {
-	//			write inhabitants;
-	//		}
-	//
-	//		if (length(groups) != 0 and length(inhabitants) != 0) {
-	//			write "Groups in building: " + groups;
-	//		}
-	//
-	//		if (length(families) != 0 and length(inhabitants) != 0) {
-	//			write "Families in building: " + families;
-	//		}
-	//
-	//		write "People in building: " + length(people_in_building);
-	//	}
+	
 	reflex infect_families when: (is_residential and time > 1.0 and n_inf > 0 and current_date.hour = 0) {
 		loop index from: 0 to: length(families) - 1 step: 1 {
 			loop indexg from: 0 to: length(families[index]) - 1 step: 1 {
@@ -441,7 +403,7 @@ species people skills: [moving] {
 	bool juvenile <- false; // 6-18
 
 	// Faith
-	bool believer <- flip(0.3);
+	bool believer <- flip(0.03);
 
 	// Locations
 	building living_place <- nil;
@@ -478,6 +440,16 @@ species people skills: [moving] {
 	// Qua si possono metter diversi reflex in base a quali posti
 	// vogliamo far visitare all'agente: chiesa, parco... con orari precisi o 
 	// probabilità associata all'azione in base all'ora / giorno 
+//	reflex initialize_data when: cycle = 1 {
+//		save "@" to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
+//		save "@" + string(beta) to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
+//		save "@" + string(working_place) + " / " + string(living_place) to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
+//	}
+
+	reflex write_data when: current_date.hour = 0 {
+		save [cycle, string(beta), string(working_place), string(living_place), self.is_infected, self.is_immune, self.is_dead] to: "D:/Simone/Outputs/" + self.name + ".txt" type: csv rewrite: false;
+	}
+
 	reflex time_to_work when: !is_dead and !is_hospitalized and adult and current_date.hour >= start_work and objective = "resting" {
 		objective <- "working";
 		target <- any_location_in(working_place);
@@ -641,4 +613,8 @@ experiment main_experiment type: gui {
 
 }
 
-  
+experiment tuning_batch repeat: 30 type: batch until: cycle > 24*120 or count(people, each.is_infected) < 2 keep_seed: true {
+	parameter 'Infection Probability' var: beta among: [0.025,0.050, 0.075, 0.1];
+}
+    
+    
