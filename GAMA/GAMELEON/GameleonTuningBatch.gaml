@@ -475,13 +475,9 @@ species people skills: [moving] {
 
 	reflex staying when: target = nil and objective != "working" {
 		staying_counter <- staying_counter + 1;
-		if (!curfew) {
-			if flip(staying_counter / staying_coeff) {
-				target <- !is_locked ? any_location_in(one_of(stuff_place_1, stuff_place_2)) : any_location_in(stuff_place_1);
-			}
-		} else if (current_date.hour >= curfew_time  or current_date.hour <= 6) {
-			target <- any_location_in(living_place);
-			objective <- "resting";
+		
+		if flip(staying_counter / staying_coeff) {
+			target <- !is_locked ? any_location_in(one_of(stuff_place_1, stuff_place_2)) : any_location_in(stuff_place_1);
 		}
 
 	}
