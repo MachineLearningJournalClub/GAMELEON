@@ -118,7 +118,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/sazio/GAME
 <!-- CONTACT -->
 ## Contact
 
-Simone Azeglio -  simone.azeglio@edu.unito.it
+Simone Azeglio -  simone.azeglio@edu.unito.it -[https://www.linkedin.com/in/simone-azeglio](https://www.linkedin.com/in/simone-azeglio) 
 
 Matteo Fordiani - matteo.fordiani@edu.unito.it
 
