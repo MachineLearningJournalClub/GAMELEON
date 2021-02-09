@@ -10,9 +10,9 @@ model load_shape_file
 global {
 // Global Variables 
 // Number of susceptible host at init
-	int number_S <- 30030;
+	int number_S <- 1000;
 	//Number of infected host at init
-	int number_I <- 30;
+	int number_I <- 20;
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
@@ -25,16 +25,16 @@ global {
 	float delta <- 0.95;
 	// Time for curfew;
 	bool curfew <- false;
-	int curfew_time <- 22;
-	int curfew_delay <- 10;
+	int curfew_time <- 18;
+	int curfew_delay <- 5; // 10
 	// main lockdown var
-	bool lockdown <- false;
+	bool lockdown <- true;
 	// accessory lockdown vars
 	//TODO: qui i dati sulle caratteristiche del lockdown https://cmajnews.com/2020/06/12/coronavirus-1095847/
-	bool lockschools <- false;
-	bool lockcommercial <- false;
-	bool lockoffices <- false;
-	bool lockchurches <- false;
+	bool lockschools <- true;
+	bool lockcommercial <- true;
+	bool lockoffices <- true;
+	bool lockchurches <- true;
 	float lockfrequency <- 0.15;
 	//Mean time for recovery;
 	int mean_recovery <- 14 * 24; // la aggiustiamo a 0, 7, 14.
@@ -43,7 +43,7 @@ global {
 	//Number total of hosts <- sostituisco in number of people
 	// int numberHosts <- number_S+number_I+number_R;
 	float step <- 60 #mn;
-	date starting_date <- date("2020-01-22-00-00-00");
+	date starting_date <- date("2020-03-01-00-00-00");
 	int nb_people <- number_S + number_I + number_R;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
@@ -59,10 +59,19 @@ global {
 
 	// Environment  ------------------------------------------------------------------------
 	// Roads, buildings shapefiles import 
-	file roads_shapefile <- file("D:/MultiAgentCovid/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
-	file buildings_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
-	file churches_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/Churches_Toronto.shp");
-
+	//file roads_shapefile <- file("D:/MultiAgentCovid/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+	//file buildings_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+	//file churches_shapefile <- file("D:/MultiAgentCovid/Data/Buildings/buildings_shp/Churches_Toronto.shp");
+	
+	//file roads_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+	//file buildings_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+	//file churches_shapefile <- file("/Users/simoneazeglio/Desktop/MAS/Data/Buildings/buildings_shp/Churches_Toronto.shp");
+	
+	file roads_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Traffic/Filtered_1st_neigh/2019-04-01-Toronto.shp");
+	file buildings_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Buildings/buildings_shp/height_buildings_1st_neigh.shp");
+	file churches_shapefile <- file("C:/Users/jamesjun/Desktop/Simone/MultiAgentCovid/Data/Data/Buildings/buildings_shp/Churches_Toronto.shp");
+    
+	
 	// Instantiating Road Network 
 	geometry shape <- envelope(roads_shapefile);
 	graph road_network;
@@ -101,13 +110,16 @@ global {
 			type <- "Institutional Place of Worship";
 			color <- #maroon;
 		}
-
-		list<building> residential_buildings <- building where (each.type = "Residential" or each.type = "Residential Detached" or each.type = "Residential Apartment" or
+		
+		//Residential Would be 5481 for 30030 citizens, so let's set 5481/30 = 183 for 1000 citizens
+		// Commercial Would be 19 for 30030 citizens, so let's take 1 for 1000 citizens
+		// Employment would be 1489 for 30030 citizens, so let's take 50 for 1000 citizens
+		list<building> residential_buildings <- 183 among building where (each.type = "Residential" or each.type = "Residential Detached" or each.type = "Residential Apartment" or
 		each.type = "Residential Multiple Dwelling" or each.type = "Residential Apartment Commercial" or each.type = "Residential Semi Detached" or
 		each.type = "Residential Townhouse");
-		list<building> employement_buildings <- building where (each.type = "Employment Industrial" or each.type = "Employment Light Industrial" or
+		list<building> employement_buildings <- 1 among building where (each.type = "Employment Industrial" or each.type = "Employment Light Industrial" or
 		each.type = "Employment Heavy Industrial" or each.type = "Employment Industrial Office" or each.type = "Employment Industrial Commercial");
-		list<building> commercial_buildings <- building where (each.type = "Commercial Residential Employment" or each.type = "Commercial Local" or
+		list<building> commercial_buildings <- 50 among building where (each.type = "Commercial Residential Employment" or each.type = "Commercial Local" or
 		each.type = "Commercial Residential");
 		list<building> open_space_buildings <- building where (each.type = "Open Space" or each.type = "Open Space Recreation" or each.type = "Open Space Natural");
 		list<building> education_buildings <- building where (each.type = "Institutional School" or each.type = "Institutional Education");
@@ -325,7 +337,7 @@ species building {
 			loop indexg from: 0 to: length(families[index]) - 1 step: 1 {
 				if (families[index][indexg].is_infected and people_in_building contains families[index][indexg]) {
 					loop indexf from: 0 to: length(families[index]) - 1 step: 1 {
-						if (families[index][indexf].is_susceptible and people_in_building contains families[index][indexf] and flip(beta * 1.25)) {
+						if (families[index][indexf].is_susceptible and people_in_building contains families[index][indexf] and flip(beta * 0.25)) {
 							//TODO: in versione finale deve essere 1.25
 							families[index][indexf].is_infected <- true;
 							families[index][indexf].is_susceptible <- false;
@@ -445,7 +457,7 @@ species people skills: [moving] {
 		}
 	}
 	reflex write_data when: current_date.hour = 0 {
-		save [cycle, string(beta), string(working_place), string(living_place), self.is_infected, self.is_immune, self.is_dead] to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
+		save [cycle, string(beta), string(curfew_time), string(curfew_delay), string(working_place), string(living_place), self.is_infected, self.is_immune, self.is_dead] to: "D:/Simone/Restrictions/" + self.name + ".txt" type: csv rewrite: false;
 	}
 	
 
@@ -474,19 +486,18 @@ species people skills: [moving] {
 	}
 
 	reflex staying when: target = nil and objective != "working" {
-		staying_counter <- staying_counter + 1;
-		
-		if flip(staying_counter / staying_coeff) {
-			target <- !is_locked ? any_location_in(one_of(stuff_place_1, stuff_place_2)) : any_location_in(stuff_place_1);
-		}
+        staying_counter <- staying_counter + 1;
 
-	}
-	
-	
-	reflex when: curfew and (current_date.hour >= curfew_time or current_date.hour <= 6) {
-		target <- any_location_in(living_place);
-		objective <- "resting";
-	}
+            if flip(staying_counter / staying_coeff) {
+                target <- !is_locked ? any_location_in(one_of(stuff_place_1, stuff_place_2)) : any_location_in(stuff_place_1);
+            }
+    }
+
+    reflex when: curfew and (current_date.hour >= curfew_time or current_date.hour <= 6) {
+        target <- any_location_in(living_place);
+        objective <- "resting";
+    }
+
 
 	// Importante, in questo modo salviamo i cammini di ogni agente!!
 	// sarebbe bene impostare abitudini (ad esempio, stesso posto per andare a lavoro 
@@ -619,10 +630,11 @@ experiment main_experiment type: gui {
 
 }
 
-experiment tuning_batch repeat: 30 type: batch until: cycle > 120*24 keep_seed: true {
+
+experiment tuning_batch repeat: 8 type: batch until: cycle > 120*24 keep_seed: true {
 	parameter 'Infection Probability' var: beta among: [0.025, 0.05, 0.075, 0.1];
-	//TODO: curfew dev'essere false!!
 }
+
     
     
 
