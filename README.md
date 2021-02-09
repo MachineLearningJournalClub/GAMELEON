@@ -122,7 +122,7 @@ Simone Azeglio -  simone.azeglio@edu.unito.it
 
 Matteo Fordiani - matteo.fordiani@edu.unito.it
 
-Project Link: [https://github.com/sazio/GAMELEON](https://github.com/sazio/GAMELEON)
+Machine Learning Journal Club (MLJC) [mljc.it](https://www.mljc.it)
 
 
 
