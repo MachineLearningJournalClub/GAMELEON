@@ -24,7 +24,7 @@
   <h3 align="center">Pretty GAMELEON : Pretty General Agent-based Model (for) Epidemiological (and) Logistical Enquiries On Networks</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Optimizing Urban Mobility Restrictions: a Multi Agent System for SARS-CoV-2 in the City of Toronto
     <br />
     <a href="https://github.com/sazio/GAMELEON"><strong>Explore the docs »</strong></a>
     <br />
@@ -70,26 +70,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+We developed a Multi-Agent System (MAS) representing the SARS-CoV-2 pandemic, focused on tracing contagion paths and allowing optimization of mobility restrictions. We deployed our model on open data from the metropolitan area of Toronto, embedding rich, spatial demographics, hourly mobility data and daily contagion data in our modeling framework of choice, GAMA. The model's free parameters are designed to be easily derived from literature and/or healthcare data. End-users (ideally policy-makers and researchers) may employ our GAMA-based interface to implement mobility restrictions in urban epidemics, compare their outcomes with past strategies or better plan for future measures.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+Major Frameworks 
 
+* [GAMA](https://gama-platform.github.io/)
 
 
 <!-- GETTING STARTED -->
