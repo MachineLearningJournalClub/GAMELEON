@@ -18,7 +18,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/sazio/GAMELEON">
-    <img src="Img/GAMELEON.png" alt="Logo" width="380" height="380">
+    <img src="Img/GAMELEON.png" alt="Logo" width="780" height="580">
   </a>
 
   <h3 align="center">Pretty GAMELEON : Pretty General Agent-based Model (for) Epidemiological (and) Logistical Enquiries On Networks</h3>
