@@ -74,8 +74,6 @@ We developed a Multi-Agent System (MAS) representing the SARS-CoV-2 pandemic, fo
 
 ### Built With
 
-Major Frameworks 
-
 * [GAMA](https://gama-platform.github.io/)
 
 
