@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/sazio/GAMELEON">
-    <img src="Img/GAMELEON_Masked.png" alt="Logo" width="480" height="380">
+    <img src="sazio/GAMELEON/Img/GAMELEON_Masked.png" alt="Logo" width="480" height="380">
   </a>
 </p>
 
