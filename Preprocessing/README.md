@@ -13,12 +13,13 @@
  * Demographic Data (Neighborhood Profiles) from 2016 census 
  * 3D Massing & Zoning by laws 
  * Apple Mobility Data 
+ 
+ 
+ 
+###  ```Multiplex_Analysis.ipynb ``` Setting up the multiplex framework:
+ * Extracting adjacency matrix based on people who are doing the same activity, two nodes are connected if in the same building
+ * Creating Ego Networks for better handling
+ * Creating supra-adjacency matrix for ego-networks 
 
 
-*  ``` GameleonCurfewBatch_1k.gaml ``` Testing Curfew for West Humber-Clairville (Toronto Neighborhood of choice) in the idealized case (agents = 1020), both by imposing Curfew_Time = 6 p.m (or 7.p.m., or 8 p.m.) , i.e. the daily time after which the curfew starts, and curfew_delay = 5 (or 10): the curfew is effective 5 or 10  after the start of the simulation.
-
-*  ``` GameleonInvasionBatch.gaml ``` Testing the number of initial infected agents among 5, 10, 20, 30, 50.
-
-*  ``` GameleonTuningBatch.gaml ``` Testing different Betas, corresponding to the transmission rate of the epidemics for the realistic case (agents = 30030)
-
-*  ``` GameleonTuningBatch_1k.gaml ``` Testing different Betas, corresponding to the transmission rate of the epidemics for the idealized case (agents = 1020)
+###  ```Neighborhood_SIR_fitting.ipynb ``` Qualitative comparison of West-Humber Clairville infection curve with a SIR model
