@@ -1,5 +1,20 @@
 # Wear a Mask before entering! 
-![masked_Gameleon](https://raw.githubusercontent.com/sazio/GAMELEON/master/Img/GAMELEON_Masked.png)
 
-* **GAMELEON**: Final model 
-* **MAC21** : Intermediate steps
+<p align="center">
+  <a href="https://github.com/sazio/GAMELEON">
+    <img src="Img/GAMELEON_Masked.png" alt="Logo" width="480" height="380">
+  </a>
+</p>
+
+### **GAMELEON**: Final model 
+*  ``` GameleonCurfewBatch.gaml ``` 
+*  ``` GameleonCurfewBatch_1k.gaml ``` 
+*  ``` GameleonInvasionBatch.gaml ``` 
+*  ``` GameleonTuningBatch.gaml ``` 
+*  ``` GameleonTuningBatch_1k.gaml ``` 
+
+### **MAC21** : Intermediate steps
+*  ```MAC_19.gaml ```
+*  ```MAC_20.gaml ```
+*  ```MAC_20_Batch.gaml ```
+*  ```MAC_20_Final.gaml ```
