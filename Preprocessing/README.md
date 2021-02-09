@@ -6,8 +6,14 @@
   </a>
 </p>
 
-### **GAMELEON**: Final model 
-*  ``` GameleonCurfewBatch.gaml ``` Testing Curfew for West Humber-Clairville (Toronto Neighborhood of choice) in the realistic case (agents = 30030), both by imposing curfew_time = 6 p.m (or 7.p.m., or 8 p.m.), i.e. the daily time after which the curfew starts,  and curfew_delay = 5 (or 10): the curfew is effective 5 or 10  after the start of the simulation.
+
+*  ```GIS_Data_Toronto.ipynb ``` Preprocessing all the datasets:
+* * Covid-19 data by Neighborhood 
+* * Traffic mobility data by TomTomAPI & Traffic Index
+* * Demographic Data (Neighborhood Profiles) from 2016 census 
+* * 3D Massing & Zoning by laws 
+* * Apple Mobility Data 
+
 
 *  ``` GameleonCurfewBatch_1k.gaml ``` Testing Curfew for West Humber-Clairville (Toronto Neighborhood of choice) in the idealized case (agents = 1020), both by imposing Curfew_Time = 6 p.m (or 7.p.m., or 8 p.m.) , i.e. the daily time after which the curfew starts, and curfew_delay = 5 (or 10): the curfew is effective 5 or 10  after the start of the simulation.
 
@@ -16,12 +22,3 @@
 *  ``` GameleonTuningBatch.gaml ``` Testing different Betas, corresponding to the transmission rate of the epidemics for the realistic case (agents = 30030)
 
 *  ``` GameleonTuningBatch_1k.gaml ``` Testing different Betas, corresponding to the transmission rate of the epidemics for the idealized case (agents = 1020)
-
-### **MAC21** : Intermediate steps
-*  ```MAC_19.gaml ```
-
-*  ```MAC_20.gaml ```
-
-*  ```MAC_20_Batch.gaml ```
-
-*  ```MAC_20_Final.gaml ```
