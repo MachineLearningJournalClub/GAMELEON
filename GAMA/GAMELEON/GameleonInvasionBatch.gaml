@@ -1,11 +1,10 @@
 /**
 * Name: MultiAgentCovid_19
-* Based on the internal empty template. 
 * Author: Simone Azeglio, Matteo Fordiani
-* Tags: 
+* Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
 
-// Per caricare file GIS 
+// Loading GIS files
 model load_shape_file
 global {
 // Global Variables 
@@ -16,7 +15,7 @@ global {
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
-	float beta <- 0.1; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
+	float beta <- 0.1; 
 	//Modifier for the baseline prob
 	float beta_baseline <- 0.0;
 	//Mortality rate for the host
@@ -30,20 +29,20 @@ global {
 	// main lockdown var
 	bool lockdown <- true;
 	// accessory lockdown vars
-	//TODO: qui i dati sulle caratteristiche del lockdown https://cmajnews.com/2020/06/12/coronavirus-1095847/
+	//Lockdown specs https://cmajnews.com/2020/06/12/coronavirus-1095847/
 	bool lockschools <- true;
 	bool lockcommercial <- true;
 	bool lockoffices <- true;
 	bool lockchurches <- true;
 	float lockfrequency <- 0.15;
 	//Mean time for recovery;
-	int mean_recovery <- 14 * 24; // la aggiustiamo a 0, 7, 14.
-	int variance_recovery <- 7 * 24; // la aggiustiamo a 0, 3, 7.
+	int mean_recovery <- 14 * 24; 
+	int variance_recovery <- 7 * 24; 
 	int min_hosp_time <- 10 * 24;
 	//Number total of hosts <- sostituisco in number of people
 	// int numberHosts <- number_S+number_I+number_R;
 	float step <- 60 #mn;
-	date starting_date <- date("2020-01-22-00-00-00");
+	date starting_date <- date("2020-03-01-00-00-00");
 	int nb_people <- number_S + number_I + number_R;
 	int min_work_start <- 6;
 	int max_work_start <- 9;
@@ -67,8 +66,7 @@ global {
 	geometry shape <- envelope(roads_shapefile);
 	graph road_network;
 
-	// int n_inf
-	// reflex globale che fa ask buildings e somma gli n_inf
+	// Creating Buildings Lists
 	init {
 	//create building from: buildings_shapefile; ----------------------------------------------------
 		create building from: buildings_shapefile with: [type:: string(read("ZN_ZONE_EX"))] {
@@ -239,17 +237,15 @@ species building {
 	rgb color <- #gray;
 	float infection_time;
 	list<people> inhabitants;
-	list<people> people_in_building update: people inside self; // ci serve per controllare se e` dentro al building in quello step
-	list<list<people>> families; // suddividiamo in gruppetti persone che hanno lo stesso living_place a init
-	list<list<people>> groups; // suddividiamo in gruppetti persone che hanno lo stesso working_place a init
-	int n_inf <- 0 update: self.people_in_building count (each.is_infected and !each.is_dead and !each.is_hospitalized); //and !each.is_dead and !each.is_hospitalized);
+	list<people> people_in_building update: people inside self; 
+	list<list<people>> families; 
+	list<list<people>> groups;
+	int n_inf <- 0 update: self.people_in_building count (each.is_infected and !each.is_dead and !each.is_hospitalized);
 	int n_tot <- 0 update: length(self.people_in_building);
 
 	aspect base {
 		draw shape color: color;
 	}
-
-	//  Save buildings location, run once 
 
 
 	action group {
@@ -368,7 +364,7 @@ species building {
 
 }
 
-// Strade di Toronto
+// Toronto Roads
 species road {
 	float weight;
 
@@ -378,10 +374,7 @@ species road {
 
 }
 
-// Persone
-//ToDo -> Implementare groups e classes per buildings e schools
-//Creare view e variabili a lato piu` carine
-//Implementare headless
+// People
 species people skills: [moving] {
 // Aspect
 	rgb color <- #fuchsia;
@@ -619,10 +612,7 @@ experiment main_experiment type: gui {
 
 }
 
-experiment analyzing_invasion repeat: 8 type: batch until: cycle > 120*24 keep_seed: true {
-	//TODO: facciamo variare il numero di infetti iniziale, cercando di simulare precisamente le loro restrizioni
-	//TODO: usiamo curfew = true, curfew_delay = 10, beta = 0.1
-	//TODO: usiamo i setting di prima e il curfew al valore reale: 20pm
+experiment analyzing_invasion repeat: 30 type: batch until: cycle > 120*24 keep_seed: true {
 	parameter 'Number of infected' var: number_I among: [5, 10, 25, 50];
 }
     
