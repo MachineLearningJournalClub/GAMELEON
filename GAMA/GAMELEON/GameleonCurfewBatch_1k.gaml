@@ -1,11 +1,10 @@
 /**
 * Name: MultiAgentCovid_19
-* Based on the internal empty template. 
 * Author: Simone Azeglio, Matteo Fordiani
-* Tags: 
+* Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
 
-// Per caricare file GIS 
+// Loading GIS files
 model load_shape_file
 global {
 // Global Variables 
@@ -16,7 +15,7 @@ global {
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
-	float beta <- 0.05; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
+	float beta <- 0.05; 
 	//Modifier for the baseline prob
 	float beta_baseline <- 0.0;
 	//Mortality rate for the host
@@ -30,7 +29,7 @@ global {
 	// main lockdown var
 	bool lockdown <- true;
 	// accessory lockdown vars
-	//TODO: qui i dati sulle caratteristiche del lockdown https://cmajnews.com/2020/06/12/coronavirus-1095847/
+	//Lockdown specs data --> https://cmajnews.com/2020/06/12/coronavirus-1095847/
 	bool lockschools <- true;
 	bool lockcommercial <- true;
 	bool lockoffices <- true;
@@ -76,8 +75,8 @@ global {
 	geometry shape <- envelope(roads_shapefile);
 	graph road_network;
 
-	// int n_inf
-	// reflex globale che fa ask buildings e somma gli n_inf
+	
+	// Global reflex
 	init {
 	//create building from: buildings_shapefile; ----------------------------------------------------
 		create building from: buildings_shapefile with: [type:: string(read("ZN_ZONE_EX"))] {
@@ -338,7 +337,6 @@ species building {
 				if (families[index][indexg].is_infected and people_in_building contains families[index][indexg]) {
 					loop indexf from: 0 to: length(families[index]) - 1 step: 1 {
 						if (families[index][indexf].is_susceptible and people_in_building contains families[index][indexf] and flip(beta * 0.25)) {
-							//TODO: in versione finale deve essere 1.25
 							families[index][indexf].is_infected <- true;
 							families[index][indexf].is_susceptible <- false;
 							families[index][indexf].is_immune <- false;
@@ -380,7 +378,7 @@ species building {
 
 }
 
-// Strade di Toronto
+// Toronto roads
 species road {
 	float weight;
 
@@ -390,10 +388,7 @@ species road {
 
 }
 
-// Persone
-//ToDo -> Implementare groups e classes per buildings e schools
-//Creare view e variabili a lato piu` carine
-//Implementare headless
+// People
 species people skills: [moving] {
 // Aspect
 	rgb color <- #fuchsia;
@@ -499,9 +494,7 @@ species people skills: [moving] {
     }
 
 
-	// Importante, in questo modo salviamo i cammini di ogni agente!!
-	// sarebbe bene impostare abitudini (ad esempio, stesso posto per andare a lavoro 
-	// e stessa casa) 	
+	// We can save agents' paths	
 	reflex move when: !is_dead and !is_hospitalized and target != nil {
 		path path_to_store <- goto(target: target, on: road_network, return_path: true);
 		//write path_to_store; // check - it works! 
@@ -553,7 +546,7 @@ species people skills: [moving] {
 		draw triangle(10) color: color border: #fuchsia;
 	} }
 
-	// Costruzione interfaccia grafica
+	// Graphical User Interface
 experiment main_experiment type: gui {
 	parameter "Number of people agents" var: nb_people category: "People";
 	parameter "Number of Susceptible" var: number_S; // The number of susceptible
@@ -631,10 +624,7 @@ experiment main_experiment type: gui {
 }
 
 
-experiment optimizing_curfew_batch repeat: 1 type: batch until: cycle > 120*24 or count(people, each.is_infected) < 2 keep_seed: true {
-	//TODO: foglio con 0.075 e uno con 0.1 ma curfew dev'essere true madonna bona!
-	//TODO: bisogna modificare anche i save, ci devono restituire il curfew time!
-	//TODO: utilizziamo beta = 0.1
+experiment optimizing_curfew_batch repeat: 30 type: batch until: cycle > 120*24 or count(people, each.is_infected) < 2 keep_seed: true {
 	parameter 'Curfew' var: curfew_time among: [18, 19, 20];
 	parameter 'Curfew delay' var: curfew_delay among: [5, 10];
 	
