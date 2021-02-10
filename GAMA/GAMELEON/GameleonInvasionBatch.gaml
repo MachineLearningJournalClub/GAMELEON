@@ -1,5 +1,5 @@
 /**
-* Name: MultiAgentCovid_19
+* Name: GameleonInvasionBatch
 * Author: Simone Azeglio, Matteo Fordiani
 * Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
