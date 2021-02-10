@@ -1,5 +1,5 @@
 /**
-* Name: MultiAgentCovid_19
+* Name: GameleonTuningBatch_1k
 * Author: Simone Azeglio, Matteo Fordiani
 * Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
