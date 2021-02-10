@@ -1,11 +1,10 @@
 /**
-* Name: MultiAgentCovid_19
-* Based on the internal empty template. 
+* Name: GameleonTuningBatch
 * Author: Simone Azeglio, Matteo Fordiani
-* Tags: 
+* Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
 
-// Per caricare file GIS 
+// Loading GIS Files
 model load_shape_file
 global {
 // Global Variables 
@@ -16,7 +15,7 @@ global {
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
-	float beta <- 0.025; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
+	float beta <- 0.025; 
 	//Modifier for the baseline prob
 	float beta_baseline <- 0.0;
 	//Mortality rate for the host
@@ -30,7 +29,7 @@ global {
 	// main lockdown var
 	bool lockdown <- false;
 	// accessory lockdown vars
-	//TODO: qui i dati sulle caratteristiche del lockdown https://cmajnews.com/2020/06/12/coronavirus-1095847/
+	//Lockdown specs https://cmajnews.com/2020/06/12/coronavirus-1095847/
 	bool lockschools <- false;
 	bool lockcommercial <- false;
 	bool lockoffices <- false;
@@ -368,7 +367,7 @@ species building {
 
 }
 
-// Strade di Toronto
+//  Toronto Roads
 species road {
 	float weight;
 
@@ -378,10 +377,7 @@ species road {
 
 }
 
-// Persone
-//ToDo -> Implementare groups e classes per buildings e schools
-//Creare view e variabili a lato piu` carine
-//Implementare headless
+// People
 species people skills: [moving] {
 // Aspect
 	rgb color <- #fuchsia;
@@ -621,7 +617,6 @@ experiment main_experiment type: gui {
 
 experiment tuning_batch repeat: 30 type: batch until: cycle > 120*24 keep_seed: true {
 	parameter 'Infection Probability' var: beta among: [0.025, 0.05, 0.075, 0.1];
-	//TODO: curfew dev'essere false!!
 }
     
     
