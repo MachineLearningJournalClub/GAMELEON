@@ -7,6 +7,18 @@
 </p>
 
 
-###  ```People_Curfew_Processing.ipynb``` 
+###  ```Betas_Processing_1k.ipynb``` 
   
-###  ```People_Processing.ipynb```
+###  ```Betas_Processing_30k.ipynb```
+
+###  ```Curfew_Processing_Beta0.05_1k.ipynb``` 
+  
+###  ```Curfew_Processing_Beta0.05_30k.ipynb```
+
+###  ```Curfew_Processing_Beta0.075_1k.ipynb``` 
+  
+###  ```Curfew_Processing_Beta0.075_30k.ipynb```
+
+###  ```Curfew_Processing_Beta0.1_1k.ipynb``` 
+  
+###  ```Curfew_Processing_Beta0.1_30k.ipynb```
