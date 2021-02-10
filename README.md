@@ -77,10 +77,7 @@ We developed a Multi-Agent System (MAS) representing the SARS-CoV-2 pandemic, fo
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+
 
 ### Installation
 
