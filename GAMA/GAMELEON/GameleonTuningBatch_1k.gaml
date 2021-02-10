@@ -1,11 +1,10 @@
 /**
 * Name: MultiAgentCovid_19
-* Based on the internal empty template. 
 * Author: Simone Azeglio, Matteo Fordiani
-* Tags: 
+* Tags: Multi-Agent-Systems, Multiplex, Epidemics
 */
 
-// Per caricare file GIS 
+// Loading GIS files
 model load_shape_file
 global {
 // Global Variables 
@@ -16,7 +15,7 @@ global {
 	//Number of resistant host at init
 	int number_R <- 0;
 	//Rate for the infection success 
-	float beta <- 0.025; // andare da 0.001 a 0.1 tipo 0.001 --> 0.005 --> 0.010 --> 0.020 --> 0.030 --> 0.040 --> 0.050 --> 0.060... 0.1 0.11
+	float beta <- 0.025; 
 	//Modifier for the baseline prob
 	float beta_baseline <- 0.0;
 	//Mortality rate for the host
@@ -26,19 +25,19 @@ global {
 	// Time for curfew;
 	bool curfew <- false;
 	int curfew_time <- 18;
-	int curfew_delay <- 5; // 10
+	int curfew_delay <- 5; 
 	// main lockdown var
 	bool lockdown <- true;
 	// accessory lockdown vars
-	//TODO: qui i dati sulle caratteristiche del lockdown https://cmajnews.com/2020/06/12/coronavirus-1095847/
+	//Lockdown Specs https://cmajnews.com/2020/06/12/coronavirus-1095847/
 	bool lockschools <- true;
 	bool lockcommercial <- true;
 	bool lockoffices <- true;
 	bool lockchurches <- true;
 	float lockfrequency <- 0.15;
 	//Mean time for recovery;
-	int mean_recovery <- 14 * 24; // la aggiustiamo a 0, 7, 14.
-	int variance_recovery <- 7 * 24; // la aggiustiamo a 0, 3, 7.
+	int mean_recovery <- 14 * 24; 
+	int variance_recovery <- 7 * 24; 
 	int min_hosp_time <- 10 * 24;
 	//Number total of hosts <- sostituisco in number of people
 	// int numberHosts <- number_S+number_I+number_R;
@@ -76,8 +75,7 @@ global {
 	geometry shape <- envelope(roads_shapefile);
 	graph road_network;
 
-	// int n_inf
-	// reflex globale che fa ask buildings e somma gli n_inf
+	// Creating buildings as are from Zonign by laws 
 	init {
 	//create building from: buildings_shapefile; ----------------------------------------------------
 		create building from: buildings_shapefile with: [type:: string(read("ZN_ZONE_EX"))] {
@@ -380,7 +378,7 @@ species building {
 
 }
 
-// Strade di Toronto
+// Toronto Roads
 species road {
 	float weight;
 
@@ -390,10 +388,7 @@ species road {
 
 }
 
-// Persone
-//ToDo -> Implementare groups e classes per buildings e schools
-//Creare view e variabili a lato piu` carine
-//Implementare headless
+// People
 species people skills: [moving] {
 // Aspect
 	rgb color <- #fuchsia;
@@ -443,9 +438,7 @@ species people skills: [moving] {
 	bool is_hospitalized <- false;
 	bool can_recover <- true;
 
-	// Qua si possono metter diversi reflex in base a quali posti
-	// vogliamo far visitare all'agente: chiesa, parco... con orari precisi o 
-	// probabilità associata all'azione in base all'ora / giorno 
+
 //	reflex initialize_data when: cycle = 1 {
 //		save "@" to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
 //		save "@" + string(beta) to: "results/people/" + self.name + ".txt" type: csv rewrite: false;
@@ -631,7 +624,7 @@ experiment main_experiment type: gui {
 }
 
 
-experiment tuning_batch repeat: 8 type: batch until: cycle > 120*24 keep_seed: true {
+experiment tuning_batch repeat: 30 type: batch until: cycle > 120*24 keep_seed: true {
 	parameter 'Infection Probability' var: beta among: [0.025, 0.05, 0.075, 0.1];
 }
 
