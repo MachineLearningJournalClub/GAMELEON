@@ -117,7 +117,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/sazio/GAME
 
 Simone Azeglio - email: simone.azeglio@edu.unito.it - Linkedin: [https://www.linkedin.com/in/simone-azeglio](https://www.linkedin.com/in/simone-azeglio) 
 
-Matteo Fordiani - email: matteo.fordiani@edu.unito.it
+Matteo Fordiani - email: matteo.fordiani@edu.unito.it - Linkedin: [https://www.linkedin.com/in/matteo-fordiani](https://www.linkedin.com/in/matteo-fordiani)
 
 Machine Learning Journal Club (MLJC) [mljc.it](https://www.mljc.it)
 
