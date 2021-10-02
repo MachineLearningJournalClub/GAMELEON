@@ -62,6 +62,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+GAMELEON is part of MLJC's Datameron macro project: A bunch of students wandering around Data during the Covid-19 lockdown
+### Abstract
 
 We developed a Multi-Agent System (MAS) representing the SARS-CoV-2 pandemic, focused on tracing contagion paths and allowing optimization of mobility restrictions. We deployed our model on open data from the metropolitan area of Toronto, embedding rich, spatial demographics, hourly mobility data and daily contagion data in our modeling framework of choice, GAMA. The model's free parameters are designed to be easily derived from literature and/or healthcare data. End-users (ideally policy-makers and researchers) may employ our GAMA-based interface to implement mobility restrictions in urban epidemics, compare their outcomes with past strategies or better plan for future measures.
 
