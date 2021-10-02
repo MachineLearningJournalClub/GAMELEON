@@ -70,6 +70,10 @@ Infectious epidemics can be simulated by employing dynamical processes as intera
 ### Built With
 
 * [GAMA](https://gama-platform.github.io/)
+* [multiNetX](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [seaborn](https://seaborn.pydata.org/)
+* [pandas](https://pandas.pydata.org/)
+* [NumPy](https://numpy.org/)
 
 
 <!-- GETTING STARTED -->
@@ -127,13 +131,13 @@ Machine Learning Journal Club (MLJC) [mljc.it](https://www.mljc.it)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [multiNetX](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [seaborn](https://seaborn.pydata.org/)
-* [pandas](https://pandas.pydata.org/)
-* [NumPy](https://numpy.org/)
-* [Img Shields](https://shields.io)
 
+This research has been initially carried as part of a project for the course "Laboratory on advanced modeling techniques: Multi Agent Systems (MAS)", taught by Prof. Marco Maggiora at the University of Turin. We would like to personally acknowledge Jonathan Critchley for useful suggestions and feedbacks with Toronto’s  geospatial data. The implementation described in the paper is largely based on the Agent-Based framework GAMA. For the development we employed a workstation with the following technical specifications:
+* CPU: Intel Core i7 10700K 8 cores / 16 threads; 
+* RAM: 64 GB DDR4 unbuffered;
+* GPU: Nvidia 2080 Ti 11 GB GDDR6
 
+We deeply acknowledge the Machine Learning Journal Club for providing us with the computational resources, the University of Turin and the University of Ottawa for supporting us.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
