@@ -145,17 +145,17 @@ We deeply acknowledge the Machine Learning Journal Club for providing us with th
 [contributors-shield]: https://img.shields.io/github/contributors/sazio/GAMELEON.svg?style=for-the-badge
 [contributors-url]: https://github.com/sazio/GAMELEON/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/sazio/GAMELEON.svg?style=for-the-badge
-[forks-url]: https://github.com/sazio/GAMELEON/network/members
+[forks-shield]: https://img.shields.io/github/forks/MachineLearningJournalClub/GAMELEON.svg?style=for-the-badge
+[forks-url]: https://github.com/MachineLearningJournalClub/GAMELEON/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/sazio/GAMELEON.svg?style=for-the-badge
-[stars-url]: https://github.com/sazio/GAMELEON/stargazers
+[stars-shield]: https://img.shields.io/github/stars/MachineLearningJournalClub/GAMELEON.svg?style=for-the-badge
+[stars-url]: https://github.com/MachineLearningJournalClub/GAMELEON/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/sazio/GAMELEON.svg?style=for-the-badge
-[issues-url]: https://github.com/sazio/GAMELEON/issues
+[issues-shield]: https://img.shields.io/github/issues/MachineLearningJournalClub/GAMELEON.svg?style=for-the-badge
+[issues-url]: https://github.com/MachineLearningJournalClub/GAMELEON/issues
 
-[license-shield]: https://img.shields.io/github/license/sazio/GAMELEON.svg?style=for-the-badge
-[license-url]: https://github.com/sazio/GAMELEON/blob/master/LICENSE
+[license-shield]: https://img.shields.io/github/license/MachineLearningJournalClub/GAMELEON.svg?style=for-the-badge
+[license-url]: https://github.com/MachineLearningJournalClub/GAMELEON/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/machine-learning-journal-club/
