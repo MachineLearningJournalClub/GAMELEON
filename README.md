@@ -14,7 +14,7 @@
     <img src="Img/GAMELEON.png" alt="Logo" width="480" height="380">
   </a>
 
-  <h3 align="center">Pretty GAMELEON : Pretty General Agent-based Model (for) Epidemiological (and) Logistical Enquiries On Networks</h3>
+  <h3 align="center">Pretty GAMELEON : Pretty General Agent-based Model (for) Epidemiological (and) Logistical Experiments On Networks</h3>
 
   <p align="center">
     Optimizing Urban Mobility Restrictions: a Multi Agent System for SARS-CoV-2 in the City of Toronto
