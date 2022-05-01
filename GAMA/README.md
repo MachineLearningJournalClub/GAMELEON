@@ -7,6 +7,8 @@
 </p>
 
 ### **GAMELEON**: Final model 
+*  ``` GameleonDemo.gaml ``` Start here to familiarize yourself with GAMELEON. This file contains recent fixes that will be integrated in the other experiments eventually.
+
 *  ``` GameleonCurfewBatch.gaml ``` Testing Curfew for West Humber-Clairville (Toronto Neighborhood of choice) in the realistic case (agents = 30030), both by imposing curfew_time = 6 p.m (or 7.p.m., or 8 p.m.), i.e. the daily time after which the curfew starts,  and curfew_delay = 5 (or 10): the curfew is effective 5 or 10  after the start of the simulation.
 
 *  ``` GameleonCurfewBatch_1k.gaml ``` Testing Curfew for West Humber-Clairville (Toronto Neighborhood of choice) in the idealized case (agents = 1020), both by imposing Curfew_Time = 6 p.m (or 7.p.m., or 8 p.m.) , i.e. the daily time after which the curfew starts, and curfew_delay = 5 (or 10): the curfew is effective 5 or 10  after the start of the simulation.
